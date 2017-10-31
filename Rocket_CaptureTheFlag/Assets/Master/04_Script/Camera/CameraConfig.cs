@@ -21,7 +21,7 @@ public class CameraConfig : MonoBehaviour
 		//Playerタグのオブジェクトを取得する,
 		playerTagObjs = GameObject.FindGameObjectsWithTag("Player");
 
-//http://game.granbluefantasy.jp/#quest/supporter/400181/4
+//参考になるかもしれないサイト http://game.granbluefantasy.jp/#quest/supporter/400181/4
 
 	}
 
