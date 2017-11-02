@@ -221,6 +221,7 @@
   <ItemGroup>
     <Compile Include="Assets\00_Master\04_Script\BackGraphic\BG_Config.cs" />
     <Compile Include="Assets\00_Master\04_Script\Camera\CameraConfig.cs" />
+    <Compile Include="Assets\00_Master\04_Script\GameManager.cs" />
     <Compile Include="Assets\00_Master\04_Script\Rocket\R_Explosion.cs" />
     <Compile Include="Assets\00_Master\04_Script\Rocket\R_move.cs" />
   </ItemGroup>
