@@ -10,6 +10,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+	int entryPlayer; //参加するプレイヤー数.
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,6 +19,14 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+				
 	}
+	
+	//参加するプレイヤー数をセットする.
+	//EntryManagerが使う.
+	void SetPlayerEntry(int entry)
+	{
+		entryPlayer = entry;
+	}
+
 }
