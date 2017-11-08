@@ -1,47 +1,23 @@
 Initialize engine version: 5.4.2f2 (b7e030c65c9b)
 GfxDevice: creating device client; threaded=1
-Initialize engine version: 5.4.2f2 (b7e030c65c9b)
-GfxDevice: creating device client; threaded=1
-Diiertec:
-    
-Version:  Direct3D 11.0 [l0 [level 11.
-    
-    Rerer: Intel(R) HD Graphics 4600 (ID=0x416)16) Vendor:   InteIlel  VRAM:     1629 MBMB
-Begiin  oMoManoagMr Rneglr adRssleamAsls
-embly
-Platform assembly: E:\_Users\kbc15_000\Documents\Unity\R_CTF\RoPkel_CtfpouremTaseFelblyg\ R:\CUser_s\kbcM1nage00\0\itocumeinte\Udllty\(t_hTFs mRocksete ias uraemleseFl)
-g\oaCTing_DE:ta\_aUased\Un\kbc1g_in0\.dllcum(tntss m\sUaneiisy\hRr_CeTsF\
-RoocdinetgC pEure_TseeFslkbcg\5R00T0\DotaumMaeagtseUditUn\i_tTyERogcnee._dlplureTheFlaity RCTF_Ddata\Man
-aged\UnityEngine.dll into Unity Child Domain
-Platform assembly: E:\_Users\kbc15_000\Documents\Unity\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading E:\_Users\kbc15_000\Documents\Unity\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: E:\_Users\kbc15_000\Documents\Unity\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading E:\_Users\kbc15_000\Documents\Unity\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: E:\_Users\kbc15_000\Documents\Unity\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\UnityEngine.UI.dllP(latfomem sagesisembly:l E:)
-_UserLoading E:\_Users\kbc15n000\tD\R_CTF\R\UoicykR_tCCF\aockurt_ThapFlare\TCTF_Data\Managed\\annigtdyUnnitny.En.dlin (.Uhidll into Unity Chilesd)
- DomaLno
-ading E:\_Users\kbc15_000\Documents\Unity\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: E:\_Users\kbc15_000\Docummaents\Uy: E:\_CTF\Rocket_CaptureTheFlag\RCTF_DRata\Managed\UantireTheFlag\RetTFoDaktng.dll (th\s messUne iEnginreless)
-rking.Loading E:\_Users\kbc15_000\Doc
-umeLoadUnity\R_CTF\Rocket_Cap0\Documents\URnityData\MR_CTF\Rocket_CaptureTheFlkingCTF.Datai\Mo Uniay Cged\Unhtild Domain
-working.dll into Unity Child Domain
-- Completed reload, in  1.765 seconds
-- Completed reload, in  1.768 seconds
-Platform assembly: E:\_Users\kbc15_000\Documents\Unity\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\System.Core.Pll (this message isE:\_Users\k
-bc15_000\Documents\Unity\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: E:\_Users\kbc15_000\Documents\Unity\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\System.dll (this message is harmless)
-Platform assembly: E:\_Users\kbc15_000\Documents\Unity\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\System.dll (this message is harmless)
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
+    Vendor:   Intel
+    VRAM:     1136 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\kbc15\OneDrive\ドキュメント\GitHub\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\kbc15\OneDrive\ドキュメント\GitHub\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\kbc15\OneDrive\ドキュメント\GitHub\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\kbc15\OneDrive\ドキュメント\GitHub\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\kbc15\OneDrive\ドキュメント\GitHub\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\kbc15\OneDrive\ドキュメント\GitHub\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\kbc15\OneDrive\ドキュメント\GitHub\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\kbc15\OneDrive\ドキュメント\GitHub\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.504 seconds
+Platform assembly: C:\Users\kbc15\OneDrive\ドキュメント\GitHub\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\kbc15\OneDrive\ドキュメント\GitHub\R_CTF\Rocket_CaptureTheFlag\RCTF_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
-<RI> Initializing input.
-<RI> Inpu< iRit>iInlizput i
-nitialized.
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
-<RI< Rni> iIlinedttouch ed touch s
-upport.
-UnloadTime: 2.249794 ms
-UnloadTime: 2.457531 ms
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1b08 -> priority: 1 
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1afc -> priority: 1 
+<RI> Input initialized.
+desktop: 1366x768 59Hz; virtual: 1366x768 at 0,0
+<RI> Initialized touch support.
