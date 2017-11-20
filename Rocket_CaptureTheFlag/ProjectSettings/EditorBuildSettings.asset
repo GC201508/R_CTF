@@ -5,19 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Master/01_Scene/Title.unity
     guid: 29d1a8c7a248fe74cb327a3b364d7dcd
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Master/01_Scene/Entry.unity
     guid: 6ac3eeb936eeb9a408d414ca499d9cd7
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Master/01_Scene/StageSelect.unity
     guid: 7031eea34a970c945a9e85a9ae5947a2
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Master/01_Scene/TestStage.unity
     guid: b23a270543cf93c4e949c061dd80948c
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Master/01_Scene/Result.unity
     guid: f59e4407d4e87604da076b6be45c5aa5
   - enabled: 1
@@ -26,3 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/02_Takemasa/TestScene/TestEntry.unity
     guid: 4ff487f0d8579944986f2afa54307b48
+  - enabled: 1
+    path: Assets/02_Takemasa/TestScene/TestSelectScene.unity
+    guid: 8286738131559414ba8310900b517451
+  - enabled: 1
+    path: Assets/02_Takemasa/TestScene/TestStage.unity
+    guid: f646eefb3ac5b2046a795e820e4a936e
+  - enabled: 1
+    path: Assets/02_Takemasa/TestScene/TestResult.unity
+    guid: 0160ad6135fdd4c469297a3c659dcd26
