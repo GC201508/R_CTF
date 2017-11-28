@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*	-	-	-	-	-	-	-	-	-	-	
+ 
+	・Rocketの動きを制御する.
+	・各Rocketの操作に対応したジョイスティックの設定をStageConfigが行う -> void SetJoystickNumber();
+ 
+ -	-	-	-	-	-	-	-	-	-	*/
 public class R_move : MonoBehaviour {
 
     Rigidbody2D rb2d;
     float beforeAxis;
     string sHorizontal;
 
-    public int joyNum = 0;
+    public int joyNum = 0; //開発用にpublicにする.
 
 	// Use this for initialization
 	void Start () {
@@ -56,4 +61,11 @@ public class R_move : MonoBehaviour {
         //前回入力を保持
         beforeAxis = Axis;
     }
+
+	/*プレイヤーの番号を外部から指定する. StageConfigで使う.*/
+	public void SetJoystickNumber(int n)
+	{
+		joyNum = n;
+		sHorizontal = "Horizontal" + n;
+	}
 }

@@ -221,15 +221,15 @@
   <ItemGroup>
     <Compile Include="Assets\00_Master\04_Script\BackGraphic\BG_Config.cs" />
     <Compile Include="Assets\00_Master\04_Script\Camera\CameraConfig.cs" />
-    <Compile Include="Assets\00_Master\04_Script\Manager\EntryManager.cs" />
-    <Compile Include="Assets\00_Master\04_Script\Manager\GameManager.cs" />
     <Compile Include="Assets\00_Master\04_Script\Rocket\R_Explosion.cs" />
+    <Compile Include="Assets\00_Master\04_Script\Rocket\R_Goal.cs" />
     <Compile Include="Assets\00_Master\04_Script\Rocket\R_move.cs" />
     <Compile Include="Assets\02_Takemasa\Alpha\1_Title\TitleScript.cs" />
     <Compile Include="Assets\02_Takemasa\Alpha\2_Entry\ColorSprict.cs" />
-    <Compile Include="Assets\02_Takemasa\Alpha\4\TestR_Goal.cs" />
+    <Compile Include="Assets\02_Takemasa\Alpha\2_Entry\EntryConfig.cs" />
+    <Compile Include="Assets\02_Takemasa\Alpha\4\StageConfig.cs" />
+    <Compile Include="Assets\02_Takemasa\Alpha\GameConfig.cs" />
     <Compile Include="Assets\02_Takemasa\Alpha\SceneSprict.cs" />
-    <Compile Include="Assets\02_Takemasa\RocketSpawn.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

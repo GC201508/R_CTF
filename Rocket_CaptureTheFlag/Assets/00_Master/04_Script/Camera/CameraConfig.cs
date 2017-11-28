@@ -12,7 +12,7 @@ public class CameraConfig : MonoBehaviour
 
 	GameObject[] playerTagObjs; //シーンにあるRocket,
 	GameObject nearRocket;		//チェックポイントに一番近いゲームオブジェクト,
-	float min = 9999.9f;
+	//float min = 9999.9f;
 
 	// Use this for initialization
 	void Start()

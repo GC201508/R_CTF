@@ -73,8 +73,10 @@ public class R_Explosion : MonoBehaviour
 	}
 
 
+	/*コリジョンに衝突したら*/
 	void OnCollisionEnter2D(Collision2D sion2d)
 	{
+		//一度も衝突していない時.
 		if (!isDestroy)
 		{
 			RocketExplosion();
