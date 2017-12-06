@@ -227,6 +227,7 @@
     <Compile Include="Assets\02_Takemasa\Alpha\1_Title\TitleScript.cs" />
     <Compile Include="Assets\02_Takemasa\Alpha\2_Entry\ColorSprict.cs" />
     <Compile Include="Assets\02_Takemasa\Alpha\2_Entry\EntryConfig.cs" />
+    <Compile Include="Assets\02_Takemasa\Alpha\3\ScoreConfig.cs" />
     <Compile Include="Assets\02_Takemasa\Alpha\3\SelectConfig.cs" />
     <Compile Include="Assets\02_Takemasa\Alpha\4\StageConfig.cs" />
     <Compile Include="Assets\02_Takemasa\Alpha\5\ResultConfig.cs" />
