@@ -17,7 +17,7 @@ public class R_move : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb2d = GetComponent<Rigidbody2D>();
-        sHorizontal = (joyNum == 0 ) ? "Horizontal":"Horizontal" + joyNum;
+        sHorizontal = (joyNum == 0 ) ? "Horizontal":"Horizontal" + joyNum;	//テスト用に使うジョイスティック番号で初期化する.
     }
 	
 	// Update is called once per frame
