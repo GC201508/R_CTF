@@ -9,8 +9,8 @@ using UnityEngine;
 ＜Entry＞
 	・ゲームに参加するプレイヤーを記録する（初回のみ）.
  
-＜SelectStage＞
-	・プレイヤー別のポイントを表示させる.
+＜SelectStage(ScoreConfig)＞
+	・プレイヤー別のスコアを表示させる(SocreConfig).
 
 ＜Stage＞
 	・参加プレイヤーをStageConfig側で作成する.
@@ -27,7 +27,7 @@ using UnityEngine;
 public class GameConfig : MonoBehaviour {
 
 	bool[] isEntryPlayer = new bool[4] {false,false,false,false};	//参加プレイヤー.
-	int[] playerPoint = new int[4] {1000,1000,1000,1000};	//各プレイヤーのポイント.
+	int[] playerScore = new int[4] {1000,2000,3000,4000};	//各プレイヤーのスコア.
 
 	// Use this for initialization
 	void Start () {
@@ -41,15 +41,27 @@ public class GameConfig : MonoBehaviour {
 		
 	}
 
-	/*ゲームに参加するプレイヤーを決める。 EntryConfigが使用する*/
+	/*ゲームに参加するプレイヤーを決める。
+	 * EntryConfigが使用する*/
 	public void SetEntryPlayer(int playerNumber)
-	{
+	{	
+	
 		isEntryPlayer[playerNumber - 1] = true;
 	}
 
 	/*ゲームに参加の有無を取得する。 
 	 * EntryConfig・StageConfigが使用する*/
-	public bool IsEntryPlayer(int plyerNumber) {return isEntryPlayer[plyerNumber - 1];}
+	public bool IsEntryPlayer(int playerNumber) {return isEntryPlayer[playerNumber - 1];}
+
+	/*指定したプレイヤーのスコアを返す。
+	 * ScoreConfigが使用する.		*/
+	public int GetPlayerScore(int playerNumber) {return playerScore[playerNumber - 1];}
 	
-	
+
+	/*指定したプレイヤーのスコアを任意の値で足す(負の値で引ける)。
+	 * ResultConfigで使用する.				*/
+	public void AddPlayerScore(int playerNumber,int scoreNum)
+	{
+		playerScore[playerNumber - 1] += scoreNum;
+	}
 }
