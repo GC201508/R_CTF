@@ -21,23 +21,23 @@ EditorBuildSettings:
     path: Assets/00_Master/01_Scene/Result.unity
     guid: f59e4407d4e87604da076b6be45c5aa5
   - enabled: 1
-    path: Assets/02_Takemasa/Alpha/1_Title/TestTitle.unity
+    path: Assets/98_Takemasa/Alpha/1_Title/TestTitle.unity
     guid: e3fbc2fe6367e774385c295f644f874c
   - enabled: 1
-    path: Assets/02_Takemasa/Alpha/2_Entry/TestEntry.unity
+    path: Assets/98_Takemasa/Alpha/2_Entry/TestEntry.unity
     guid: 4ff487f0d8579944986f2afa54307b48
   - enabled: 1
-    path: Assets/02_Takemasa/Alpha/3/TestSelectScene.unity
+    path: Assets/98_Takemasa/Alpha/3/TestSelectScene.unity
     guid: 8286738131559414ba8310900b517451
   - enabled: 1
-    path: Assets/02_Takemasa/Alpha/4/TestStage.unity
+    path: Assets/98_Takemasa/Alpha/4/TestStage.unity
     guid: f646eefb3ac5b2046a795e820e4a936e
   - enabled: 1
-    path: Assets/02_Takemasa/Alpha/4/Stage00.unity
+    path: Assets/98_Takemasa/Alpha/4/Stage00.unity
     guid: 98707493c8de3c145bd236d4ad5257b8
   - enabled: 1
-    path: Assets/02_Takemasa/Alpha/4/Stage01.unity
+    path: Assets/98_Takemasa/Alpha/4/Stage01.unity
     guid: 11f4c916524b1ec40b9941335521778a
   - enabled: 1
-    path: Assets/02_Takemasa/Alpha/5/TestResult.unity
+    path: Assets/98_Takemasa/Alpha/5/TestResult.unity
     guid: 0160ad6135fdd4c469297a3c659dcd26

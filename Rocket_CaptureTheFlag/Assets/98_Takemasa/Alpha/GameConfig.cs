@@ -26,7 +26,7 @@ using UnityEngine;
 
 public class GameConfig : MonoBehaviour {
 
-	bool[] isEntryPlayer = new bool[4] {false,false,false,false};	//参加プレイヤー.
+	public bool[] isEntryPlayer = new bool[4] {false,false,false,false};	//参加プレイヤー.
 	int[] playerScore = new int[4] {1000,2000,3000,4000};	//各プレイヤーのスコア.
 
 	// Use this for initialization
