@@ -88,9 +88,7 @@ public class ScoreConfig : MonoBehaviour {
 	{ 
 		Vector3 canvasSize = gameObject.GetComponent<RectTransform>().sizeDelta;	//Canvasの横サイズ取得.
 		float divSizeX = (canvasSize.x / (1 + listPlayerScore.Count)); //分割したサイズ幅を求めす.
-		Debug.Log("Canvas横幅" + canvasSize.x);
-		Debug.Log("要素数" + listPlayerScore.Count);
-		Debug.Log("幅" + divSizeX);
+
 		//表示位置を変える.
 		foreach(var listPS in listPlayerScore.Select((Value,Index) => new {Value,Index}))
 		{ 
@@ -99,7 +97,7 @@ public class ScoreConfig : MonoBehaviour {
 			Vector3 goPos = goRT.localPosition;	//移動後の位置を作るためRectTransformでのlocalPosを取得.
 			int mul = listPS.Index;	//ｘ位置の倍率.
 			
-			goPos.x = (divSizeX + divSizeX * mul) - 400; //調整後の位置を決定す.
+			goPos.x = (divSizeX + divSizeX * mul) - canvasSize.x / 2; //調整後の位置を決定す.
 			goRT.localPosition = goPos; //RectTransformに戻して完成.
 		}
 	}
