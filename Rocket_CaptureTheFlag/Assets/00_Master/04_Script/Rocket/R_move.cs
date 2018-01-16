@@ -68,4 +68,7 @@ public class R_move : MonoBehaviour {
 		joyNum = n;
 		sHorizontal = "Horizontal" + n;
 	}
+	
+	/*プレイヤーの番号を返す. StageConfigで使う.*/
+	public int GetJoystickNumber(){return joyNum;}
 }

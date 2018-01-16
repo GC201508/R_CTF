@@ -8,8 +8,7 @@ using UnityEngine;
 
 	＜予定＞
 	・Rocketらがゴールせずに全滅した際の処理.
-	・順位表示.
-	・GameConfigに順位渡す,リザルトで順位が必要になるから.
+	
  
  -	-	-	-	-	-	-	-	-	-	-	-	-	*/
 public class StageConfig : MonoBehaviour
@@ -65,12 +64,12 @@ public class StageConfig : MonoBehaviour
 
 		}
 
-
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		NakayoDieRocket();
 		GoalRocket();
 	}
 
@@ -90,10 +89,34 @@ public class StageConfig : MonoBehaviour
 		GameObject[] Player = GameObject.FindGameObjectsWithTag("Player");
 		foreach (GameObject p in Player)
 		{
+			
+			//該当プレイヤーがゴールした.
 			if (p.GetComponent<R_Goal>().IsRocketGoal())
 			{
-				sceneManager.SetActive(true);
+				GameObject gameConfig = GameObject.FindGameObjectWithTag("GameConfig"); //タグからGameConfigを取得す.
+				int goalPlayerNumber = p.GetComponent<R_move>().GetJoystickNumber();　 //プレイヤー番号を取得.
+				gameConfig.GetComponent<GameConfig>().OnBounusGoal(goalPlayerNumber);  //該当プレイヤーにゴールボーナスを設定.
+				sceneManager.SetActive(true); //シーンを移動する.
 			}
+			
+		}
+	}
+
+	/*Rocketがプレイヤーと衝突した場合に行う処理*/
+	void NakayoDieRocket()
+	{
+		GameObject[] Player = GameObject.FindGameObjectsWithTag("Player");
+		foreach (GameObject p in Player)
+		{
+			
+			//該当プレイヤーが仲良死した.
+			if (p.GetComponent<R_Explosion>().IsRocketNakayoDie())
+			{
+				GameObject gameConfig = GameObject.FindGameObjectWithTag("GameConfig"); //タグからGameConfigを取得す.
+				int goalPlayerNumber = p.GetComponent<R_move>().GetJoystickNumber();　 //プレイヤー番号を取得.
+				gameConfig.GetComponent<GameConfig>().OnBounusNakayoDie(goalPlayerNumber);  //該当プレイヤーに仲良死ボーナスを設定.
+			}
+			
 		}
 	}
 

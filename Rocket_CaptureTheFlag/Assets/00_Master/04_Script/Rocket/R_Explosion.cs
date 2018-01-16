@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
+ 
+	・ロケットが爆発する処理.
+	・壁に触れたら爆発.
+	・カメラ外に出たら爆破.
+	・プレイヤーに衝突したら爆発.
+		=>仲良死ボーナスフラグがtrueになる.
+ 
+ */
 public class R_Explosion : MonoBehaviour
 {
 
 	public GameObject explosion;
-	bool isDestroy = false;
+	bool isDestroy = false;     //爆発し終えたら.
+	bool isNakayoDie = false;   //仲良死(プレイヤーに衝突)したらtrue.
 
 	// Use this for initialization
 	void Start()
@@ -72,10 +81,23 @@ public class R_Explosion : MonoBehaviour
 		isDestroy = true;
 	}
 
+	/*Rocketが仲良死したかを返す.
+	 * StageConfigで使用する.*/
+	public bool IsRocketNakayoDie()
+	{
+		return isNakayoDie;
+	}
+
 
 	/*コリジョンに衝突したら*/
 	void OnCollisionEnter2D(Collision2D sion2d)
 	{
+		//Playerに衝突.
+		if (sion2d.gameObject.tag == "Player")
+		{
+			isNakayoDie = true;
+		}
+
 		//一度も衝突していない時.
 		if (!isDestroy)
 		{

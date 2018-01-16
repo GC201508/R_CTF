@@ -234,7 +234,7 @@ Prefab:
     - target: {fileID: 114707857333468354, guid: 6148d0be5d333e740b113970d576b097,
         type: 2}
       propertyPath: isEntryPlayer.Array.data[0]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114707857333468354, guid: 6148d0be5d333e740b113970d576b097,
         type: 2}
