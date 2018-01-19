@@ -20,6 +20,7 @@ using UnityEngine.SceneManagement;
 	・Resultシーンでも使用する.
 	・フラッグを取得したプレイヤーのスコアを加算する演出.
 	・仲良死したプレイヤーにボーナス追加する演出.
+		=>縦等分に並べる.
 	・前述２つを追加した後、スコアを各プレイヤーに加算.
 	・GameConfigにあるlistScoreBounusの
  
@@ -31,6 +32,11 @@ public class ScoreConfig : MonoBehaviour
 	public GameObject prefabSB; //スコアボードのプレハブ. 
 	public Texture2D[] rocketColor;    //Rocket4色. 
 
+	public bool isStageSelectMode = false;	//trueでStageSelectシーンのスコア処理を行う.
+	public bool isRusultMode = false;	//trueでResultシーンのスコア処理を行う.
+	
+	public GameObject goalRusult;//ゴールRusult(StageSlectでは不必要).
+	
 	public struct PlayerScore
 	{
 		public int plyaerNumber;//プレイヤーのナンバー.
@@ -40,23 +46,38 @@ public class ScoreConfig : MonoBehaviour
 	//PlayerScore構造体のリスト.
 	List<PlayerScore> listPlayerScore = new List<PlayerScore>();
 
-	GameObject gameConfig;  //ゲームコンフィング.
+	GameConfig gameConfig;  //ゲームコンフィング.
 	Text targetText; //テキスト変更用変数.
+	int goalPlayerNum;	//ゴールしたプレイヤーの番号.
+	
 
 	// Use this for initialization
 	void Start()
 	{
-		gameConfig = GameObject.FindGameObjectWithTag("GameConfig"); //タグからGameConfigを取得す.
+		//チェック入れ忘れログ表示
+		if(!isStageSelectMode && !isRusultMode) {Debug.Log("(どのModeか)ぜんぜんわからん！"); }		
+
+		
+		gameConfig = GameObject.FindGameObjectWithTag("GameConfig").GetComponent<GameConfig>(); //タグからGameConfigを取得す.
 		
 		//ステージセレクト時にスコア表示.
-		if (SceneManager.GetActiveScene().name == "TestSelectScene")
+		if (isStageSelectMode)
 		{
 			CreateScoreBoard();
 			AbjustmentPosScoreBoard();
 		}
+
+		//リザルト時にスコア表示.
+		else if(isRusultMode)
+		{
+			goalPlayerNum = gameConfig.GetGoalPlayerNumber();
+			ChangeRocketImage();
+			InitRusultGoalScore();
+		}
 	}
 
-	/* エントリーしたプレイヤーに応じたスコアボードを作成. */
+	/* エントリーしたプレイヤーに応じたスコアボードを作成. 
+	 *StageSlectで使用する. */
 	void CreateScoreBoard()
 	{
 		//エントリーしたプレイヤーのみ生成する.
@@ -66,7 +87,7 @@ public class ScoreConfig : MonoBehaviour
 			int playerNum = i + 1; //プレイヤー番号.
 
 			//プレイヤーが不参加の場合はコンティニュする.
-			if (!gameConfig.GetComponent<GameConfig>().IsEntryPlayer(playerNum))
+			if (!gameConfig.IsEntryPlayer(playerNum))
 			{
 				continue;
 			}
@@ -84,7 +105,7 @@ public class ScoreConfig : MonoBehaviour
 
 			//子オブジェクトであるScoreのテキストをGameConfigから取得した値に変更.
 			targetText = obj.transform.Find("Score").gameObject.GetComponent<Text>();
-			targetText.text = gameConfig.GetComponent<GameConfig>().GetPlayerScore(playerNum).ToString();
+			targetText.text = gameConfig.GetPlayerScore(playerNum).ToString();
 
 			PlayerScore ps;
 			ps.plyaerNumber = playerNum; //プレイヤー番号.
@@ -93,7 +114,8 @@ public class ScoreConfig : MonoBehaviour
 		}
 	}
 
-	/* スコアボードの配置を調整.*/
+	/* スコアボードの配置を調整.
+	 *StageSlectで使用する. */
 	void AbjustmentPosScoreBoard()
 	{
 		Vector3 canvasSize = gameObject.GetComponent<RectTransform>().sizeDelta;    //Canvasの横サイズ取得.
@@ -112,6 +134,36 @@ public class ScoreConfig : MonoBehaviour
 		}
 	}
 
+	/* RocketImageをゴールしたロケットの色(Texture2D)に差し替え.
+	 *Rusultで使用する.*/
+	void ChangeRocketImage()
+	{
+		//タグから該当するオブジェクトを取得.
+		GameObject[] objRocket = GameObject.FindGameObjectsWithTag("RocketImage");
+		
+		//各スプライト差し替え.
+		foreach(GameObject obj in objRocket)
+		{
+			Image img = obj.gameObject.GetComponent<Image>();
+			Texture2D rocketTex = rocketColor[goalPlayerNum - 1];
+			img.sprite = Sprite.Create(rocketTex, new Rect(0, 0, rocketTex.width, rocketTex.height), Vector2.zero);
+		}
+		
+	}
+
+	/* ゴールしたプレイヤーのスコア(Text)を初期化.
+	 * Rusultで使用する.*/
+	void InitRusultGoalScore()
+	{
+		//子オブジェクトScoreBoardを取得.
+		GameObject obj = goalRusult.transform.Find("ScoreBoard").gameObject;		
+		
+		//Score(ScoreBoardの子)のTextコンポーネント取得.
+		targetText = obj.transform.Find("Score").gameObject.GetComponent<Text>();	
+		
+		//Scoreテキストをゴールプレイヤーの所持スコアで書き換え.
+		targetText.text = gameConfig.GetPlayerScore(goalPlayerNum).ToString();		
+	}
 
 	// Update is called once per frame
 	void Update()

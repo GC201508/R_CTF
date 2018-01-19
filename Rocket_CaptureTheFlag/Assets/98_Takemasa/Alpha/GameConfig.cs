@@ -41,8 +41,24 @@ public class GameConfig : MonoBehaviour {
 	//ScoreBounus構造体のリスト.
 	List<ScoreBonus> listScoreBounus = new List<ScoreBonus>();
 
+	//Rusultデバッグ用
+	public bool RUSULT_DEBUG = false; //trueで適用.
+
+
 	// Use this for initialization
 	void Start () {
+
+		//Rusultデバッグ用
+		if(RUSULT_DEBUG)
+		{
+			SetEntryPlayer(1);
+			SetEntryPlayer(2);
+			SetEntryPlayer(3);
+
+			OnBounusGoal(1);
+			OnBounusNakayoDie(2);
+			OnBounusNakayoDie(3);
+		}
 
 		//このオブジェクトはシーン遷移で破棄されない.
 		DontDestroyOnLoad(this);
@@ -128,10 +144,11 @@ public class GameConfig : MonoBehaviour {
 			ScoreBonus sb = listScoreBounus[i];
 			
 			//ボーナス設定するプレイヤーが一致.
-			if(sb.playerNumber == playerNumber)
+			if(sb.playerNumber == playerNumber && !sb.isNakayoDieBounus)
 			{
 				sb.isNakayoDieBounus = true;	//仲良死ボーナスをtrue.
 				listScoreBounus[i] = sb; //要素を更新.
+				Debug.Log(playerNumber + "Pに仲良死ボーナス");
 			}
 			
 		}
