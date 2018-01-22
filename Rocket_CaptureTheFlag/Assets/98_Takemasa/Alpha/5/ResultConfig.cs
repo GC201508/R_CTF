@@ -13,9 +13,14 @@ public class ResultConfig : MonoBehaviour {
 	int goalPlayerNum;	//ゴールしたプレイヤー番号.
 	// Use this for initialization
 	void Start () {
+		//全滅時とゴール時で表示するテキストを変える予定.
+
+		//ゴールしたプレイヤーがいる時.
 		GameObject gameConfig = GameObject.FindGameObjectWithTag("GameConfig"); //タグからGameConfigを取得す.
 		goalPlayerNum = gameConfig.GetComponent<GameConfig>().GetGoalPlayerNumber(); //ゴールしたプレイヤー番号を受渡.
 		goalText.text = goalPlayerNum + " P　ゴ ー ル"; //ゴールしたプレイヤーのテキスト表示.
+	
+		//ゴールしたプレイヤーがいない時.
 	}
 	
 	// Update is called once per frame
@@ -23,8 +28,7 @@ public class ResultConfig : MonoBehaviour {
 		
 	}
 
-	/*演出するとこ*/
-	
+
 	/*ゴールボーナス入れるとこ*/
 
 	/*仲良死ボーナス入れるとこ*/
