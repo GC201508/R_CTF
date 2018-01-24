@@ -54,12 +54,13 @@ public class GameConfig : MonoBehaviour
 		if (RUSULT_DEBUG)
 		{
 			SetEntryPlayer(1);
-			SetEntryPlayer(2);
+			SetEntryPlayer(4);
 			SetEntryPlayer(3);
+			SetEntryPlayer(2);
 
 			OnBounusGoal(1);
 			OnBounusNakayoDie(2);
-			OnBounusNakayoDie(3);
+			OnBounusNakayoDie(4);
 		}
 
 		//このオブジェクトはシーン遷移で破棄されない.
@@ -158,7 +159,7 @@ public class GameConfig : MonoBehaviour
 	}
 
 	/*引数で指定したプレイヤー番号が仲良死ボーナス得ているか返す.
- 	 * ResultConfigのループ式内で使用する。しなさい.*/
+ 	 * ResultConfigで使用する.*/
 	public bool IsBounusNakayoDiePlayer(int playerNumber)
 	{
 		foreach (ScoreBonus sb in listScoreBounus)

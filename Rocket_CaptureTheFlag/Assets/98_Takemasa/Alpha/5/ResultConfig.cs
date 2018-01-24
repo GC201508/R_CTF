@@ -10,17 +10,28 @@ using UnityEngine.UI;
 public class ResultConfig : MonoBehaviour {
 
 	public Text goalText;	//ゴールテキスト.
+	public Font allDiefont;	//全滅時に差し替えるフォント.
+
 	int goalPlayerNum;	//ゴールしたプレイヤー番号.
 	// Use this for initialization
 	void Start () {
-		//全滅時とゴール時で表示するテキストを変える予定.
 
 		//ゴールしたプレイヤーがいる時.
 		GameObject gameConfig = GameObject.FindGameObjectWithTag("GameConfig"); //タグからGameConfigを取得す.
+ 
 		goalPlayerNum = gameConfig.GetComponent<GameConfig>().GetGoalPlayerNumber(); //ゴールしたプレイヤー番号を受渡.
-		goalText.text = goalPlayerNum + " P　ゴ ー ル"; //ゴールしたプレイヤーのテキスト表示.
-	
+		
+		if(goalPlayerNum != 0)
+		{
+			goalText.text = goalPlayerNum + " P　ゴ ー ル"; //ゴールしたプレイヤーのテキスト表示.
+		}
 		//ゴールしたプレイヤーがいない時.
+		else
+		{
+			goalText.font = allDiefont;
+			goalText.text = "全　滅";
+		}
+	
 	}
 	
 	// Update is called once per frame
