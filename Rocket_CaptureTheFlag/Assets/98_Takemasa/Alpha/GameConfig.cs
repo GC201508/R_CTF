@@ -61,6 +61,7 @@ public class GameConfig : MonoBehaviour
 			OnBounusGoal(1);
 			OnBounusNakayoDie(2);
 			OnBounusNakayoDie(4);
+			OnBounusNakayoDie(3);
 		}
 
 		//このオブジェクトはシーン遷移で破棄されない.

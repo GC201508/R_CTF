@@ -59,7 +59,8 @@ public class ScoreConfig : MonoBehaviour
 	int[] localPlayersScore = new int[4] { 1, 2, 3, 4 };    //スコア追加前の各プレイヤースコア.
 	Text targetTextGScore;  //GoalTextのコンポーネント.
 	Text targetTextScore;   //ScoreTextのコンポーネント.
-	Text[] targetTextNScore;//NDieScoreTextのコンポーネント.
+	Text targetTextNDScore; //NDieScoreTextのコンポーネント.
+	Text[] targetTextScoreNDSB;//NDSBのScoreTextのコンポーネント.
 
 	// Use this for initialization
 	void Start()
@@ -233,7 +234,10 @@ public class ScoreConfig : MonoBehaviour
 		}
 		else
 		{
-			goalRusult.transform.Find("GoalText").gameObject.transform.parent = gameObject.transform;	//ゴールテキストの子関係を解除.
+			//ゴールテキストの子関係を解除.
+			goalRusult.transform.Find("GoalText").gameObject.transform.parent = gameObject.transform.Find("RusultLayout");
+			
+			
 			DestroyImmediateChildObject(goalRusult.transform); //GoalRusultの子オブジェクトを全消去.
 		}
 	}
@@ -254,15 +258,27 @@ public class ScoreConfig : MonoBehaviour
 			sortNDBS[index - 1] = obj; //数値通りにsort配列に追加する.
 		}
 
-		//仲良死ボーナス対象プレイヤー（0人or2人or4人の3通り）から処理を行う.
+		//仲良死ボーナス対象プレイヤー
 		if(ndPlayerCnt == 0)
 		{
-			DestroyImmediateChildObject(ndRusult.transform);
+			GameObject obj = ndRusult.transform.Find("NonNDText").gameObject; //NonDTextオブジェクトのコンポーネント取得.
+			obj.transform.parent = gameObject.transform.Find("RusultLayout");	//NakayoDieRusultとの子関係を解除.
+			obj.SetActive(true);	//アクティブにする.
+			
+			obj = ndRusult.transform.Find("NDieText").gameObject;//NDieTextのオブジェクト取得.
+			obj.transform.parent = gameObject.transform.Find("RusultLayout");	//NakayoDieRusultとの子関係を解除.
+			
+			DestroyImmediateChildObject(ndRusult.transform); //NakayoDieRusultの中身を消.
 		}
 		else
 		{
 			int ndsbCnt = 0;	//使用するNDSB番号.
-			targetTextNScore = new Text[ndPlayerCnt];	//仲良死ボーナス取得数だけ作成.
+			targetTextScoreNDSB = new Text[ndPlayerCnt];	//仲良死ボーナス取得数だけ作成.
+			
+			//仲良死ボーナスの.
+			targetTextNDScore = ndRusult.transform.Find("NDieScore").gameObject.GetComponent<Text>();
+			targetTextNDScore.text = "＋" + addNDieScore.ToString();
+			
 			for(int i = 0; i < 4 ; i++)
 			{
 				int playerNum = i + 1;	//プレイヤー番号.
@@ -275,12 +291,22 @@ public class ScoreConfig : MonoBehaviour
 					img.sprite = Sprite.Create(rocketTex, new Rect(0, 0, rocketTex.width, rocketTex.height), Vector2.zero);
 					
 					//ScoreのTextコンポーネントを取得.
-					targetTextNScore[ndsbCnt] = sortNDBS[ndsbCnt].transform.Find("Score").gameObject.GetComponent<Text>();
+					targetTextScoreNDSB[ndsbCnt] = sortNDBS[ndsbCnt].transform.Find("Score").gameObject.GetComponent<Text>();
 					
-					targetTextNScore[ndsbCnt].text = localPlayersScore[i].ToString();	//テキスト挿入.
+					targetTextScoreNDSB[ndsbCnt].text = localPlayersScore[i].ToString();	//テキスト挿入.
+
+					sortNDBS[ndsbCnt].transform.parent = ndRusult.transform;	//NdieSocreBoard'sの子関係を削除.					
+
+					PlayerScore ps;	//受け渡し用変数.
+					ps.plyaerNumber = playerNum;		//プレイヤー番号.	
+					ps.scoreBoard = sortNDBS[ndsbCnt];	//NDのスコアボード.
+					listPlayerScore.Add(ps); //リストに追加.
+
 					ndsbCnt++;	//カウントを増やす.
 				}
 			}
+
+			DestroyImmediateChildObject(ndRusult.transform.Find("NDieScoreBoard's")); //NakayoDieRusultの中身を消.
 		}
 
 	}
