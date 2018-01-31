@@ -56,11 +56,20 @@ public class ScoreConfig : MonoBehaviour
 	//<Rusultのみ使用：private変数>
 	int goalPlayerNum;  //ゴールしたプレイヤーの番号.
 	int ndPlayerCnt = 0;    //仲良死したプレイヤー数.	
+	bool isGoalScoreRusult = false; //trueでゴールスコアの集計をする.
+	bool isNDieScoreRusult = false; //trueで仲良死スコアの集計をする.
 	int[] localPlayersScore = new int[4] { 1, 2, 3, 4 };    //スコア追加前の各プレイヤースコア.
 	Text targetTextGScore;  //GoalTextのコンポーネント.
 	Text targetTextScore;   //ScoreTextのコンポーネント.
 	Text targetTextNDScore; //NDieScoreTextのコンポーネント.
-	Text[] targetTextScoreNDSB;//NDSBのScoreTextのコンポーネント.
+	Text[] targetTextScoreNDSB;  //NDSBのScoreTextのコンポーネント.
+	RectTransform rtRusultLayout;   //リザルトレイアウトのRectトランスフォーム.
+	bool isStartGoalScore = false;  //ゴールスコア集計始めた時 trueになる.
+	bool isEndGoalScore = false;  //ゴールスコア集計を終えた時 trueになる.
+								  //bool isStartNdieScore = false;  //仲良死スコア集計を始めた時 trueになる.
+	bool isEndNDieScore = false;  //仲良死スコア集計を終えた時 trueになる.
+	bool isMoveStartRusultLayout = false; //リザルトレイアウトが移動開始した時 true.
+	bool isMoveEndRusultLayout = false; //リザルトレイアウトが移動し終えた時 true.
 
 	// Use this for initialization
 	void Start()
@@ -85,12 +94,14 @@ public class ScoreConfig : MonoBehaviour
 		{
 
 			goalPlayerNum = gameConfig.GetGoalPlayerNumber();//ゴールしたプレイヤー番号を取得.
+			rtRusultLayout = gameObject.transform.Find("RusultLayout").GetComponent<RectTransform>();
 			InitPlayerScore();  //GameConfigへポイント追加を済ます.
 			InitRusultGoal(); //ゴールリザルト演出の準備.
 			InitRusultNakayoDie();//仲良死演出の準備.
 
-			//TODO:スコア演出確認用Invokeです。　呼び出し方が変わる可能性あり.
-			Invoke("GoalScoreAddAnimation", 1.0f);
+			//TODO:スコア演出確認用Invokeです。
+			//Invoke("GoalScoreAddAnimation", 1.0f);
+			//Invoke("NDieScoreAddAnimation",2.5f);
 		}
 	}
 
@@ -204,8 +215,10 @@ public class ScoreConfig : MonoBehaviour
 	 *Rusultで使用する.*/
 	void InitRusultGoal()
 	{
-		if (goalPlayerNum != 0)	//ゴールしたプレイヤーが居る時.
+		if (goalPlayerNum != 0) //ゴールしたプレイヤーが居る時.
 		{
+			isGoalScoreRusult = true;   //ゴールスコアの集計をするのでtrue.
+
 			//タグから該当するオブジェクトを取得.
 			GameObject[] objRocket = GameObject.FindGameObjectsWithTag("RocketImage");
 
@@ -232,12 +245,12 @@ public class ScoreConfig : MonoBehaviour
 			//加算するゴールスコアで書き換え.
 			targetTextGScore.text = "＋" + addGoalScore;
 		}
-		else
+		else  //ゴールしたプレイヤーがいない時.
 		{
 			//ゴールテキストの子関係を解除.
-			goalRusult.transform.Find("GoalText").gameObject.transform.parent = gameObject.transform.Find("RusultLayout");
-			
-			
+			goalRusult.transform.Find("GoalText").gameObject.transform.SetParent(gameObject.transform.Find("RusultLayout"));
+
+
 			DestroyImmediateChildObject(goalRusult.transform); //GoalRusultの子オブジェクトを全消去.
 		}
 	}
@@ -249,60 +262,62 @@ public class ScoreConfig : MonoBehaviour
 	void InitRusultNakayoDie()
 	{
 		GameObject[] objNDBS = GameObject.FindGameObjectsWithTag("NDSB"); //仲良死スコアボードを取得.
-		GameObject[] sortNDBS = new GameObject[4];	//ソート後のNDBSを格納.
-		Regex re = new Regex(@"[^1-4]");	//文字列から数字(1~4)だけ取り出す準備.
-		
-		foreach(GameObject obj in objNDBS) 
-		{ 
-			int index = int.Parse(re.Replace(obj.name,"")); //スコアボードのnameから数値のみ取得.
+		GameObject[] sortNDBS = new GameObject[4];  //ソート後のNDBSを格納.
+		Regex re = new Regex(@"[^1-4]");    //文字列から数字(1~4)だけ取り出す準備.
+
+		foreach (GameObject obj in objNDBS)
+		{
+			int index = int.Parse(re.Replace(obj.name, "")); //スコアボードのnameから数値のみ取得.
 			sortNDBS[index - 1] = obj; //数値通りにsort配列に追加する.
 		}
 
 		//仲良死ボーナス対象プレイヤー
-		if(ndPlayerCnt == 0)
+		if (ndPlayerCnt == 0)   //仲良死ボーナスなし.
 		{
 			GameObject obj = ndRusult.transform.Find("NonNDText").gameObject; //NonDTextオブジェクトのコンポーネント取得.
-			obj.transform.parent = gameObject.transform.Find("RusultLayout");	//NakayoDieRusultとの子関係を解除.
-			obj.SetActive(true);	//アクティブにする.
-			
+			obj.transform.SetParent(gameObject.transform.Find("RusultLayout"));   //NakayoDieRusultとの子関係を解除.
+			obj.SetActive(true);    //アクティブにする.
+
 			obj = ndRusult.transform.Find("NDieText").gameObject;//NDieTextのオブジェクト取得.
-			obj.transform.parent = gameObject.transform.Find("RusultLayout");	//NakayoDieRusultとの子関係を解除.
-			
+			obj.transform.SetParent(gameObject.transform.Find("RusultLayout"));   //NakayoDieRusultとの子関係を解除.
+
 			DestroyImmediateChildObject(ndRusult.transform); //NakayoDieRusultの中身を消.
 		}
-		else
+		else  //仲良死ボーナスあり.
 		{
-			int ndsbCnt = 0;	//使用するNDSB番号.
-			targetTextScoreNDSB = new Text[ndPlayerCnt];	//仲良死ボーナス取得数だけ作成.
-			
+			isNDieScoreRusult = true;   //仲良死スコアを集計するのでtrueに.
+
+			int ndsbCnt = 0;    //使用するNDSB番号.
+			targetTextScoreNDSB = new Text[ndPlayerCnt];    //仲良死ボーナス取得数だけ作成.
+
 			//仲良死ボーナスの.
 			targetTextNDScore = ndRusult.transform.Find("NDieScore").gameObject.GetComponent<Text>();
 			targetTextNDScore.text = "＋" + addNDieScore.ToString();
-			
-			for(int i = 0; i < 4 ; i++)
+
+			for (int i = 0; i < 4; i++)
 			{
-				int playerNum = i + 1;	//プレイヤー番号.
-				
-				if(gameConfig.IsBounusNakayoDiePlayer(playerNum))
+				int playerNum = i + 1;  //プレイヤー番号.
+
+				if (gameConfig.IsBounusNakayoDiePlayer(playerNum))
 				{
 					//子オブジェクトであるRocketのスプライトをプレイヤーに応じたカラーにする.
 					Image img = sortNDBS[ndsbCnt].transform.Find("Rocket").gameObject.GetComponent<Image>();
 					Texture2D rocketTex = rocketColor[playerNum - 1];
 					img.sprite = Sprite.Create(rocketTex, new Rect(0, 0, rocketTex.width, rocketTex.height), Vector2.zero);
-					
+
 					//ScoreのTextコンポーネントを取得.
 					targetTextScoreNDSB[ndsbCnt] = sortNDBS[ndsbCnt].transform.Find("Score").gameObject.GetComponent<Text>();
-					
-					targetTextScoreNDSB[ndsbCnt].text = localPlayersScore[i].ToString();	//テキスト挿入.
 
-					sortNDBS[ndsbCnt].transform.parent = ndRusult.transform;	//NdieSocreBoard'sの子関係を削除.					
+					targetTextScoreNDSB[ndsbCnt].text = localPlayersScore[i].ToString();    //テキスト挿入.
 
-					PlayerScore ps;	//受け渡し用変数.
-					ps.plyaerNumber = playerNum;		//プレイヤー番号.	
-					ps.scoreBoard = sortNDBS[ndsbCnt];	//NDのスコアボード.
+					sortNDBS[ndsbCnt].transform.SetParent(ndRusult.transform);    //NdieSocreBoard'sの子関係を削除.					
+
+					PlayerScore ps; //受け渡し用変数.
+					ps.plyaerNumber = playerNum;        //プレイヤー番号.	
+					ps.scoreBoard = sortNDBS[ndsbCnt];  //NDのスコアボード.
 					listPlayerScore.Add(ps); //リストに追加.
 
-					ndsbCnt++;	//カウントを増やす.
+					ndsbCnt++;  //カウントを増やす.
 				}
 			}
 
@@ -314,10 +329,11 @@ public class ScoreConfig : MonoBehaviour
 	//--------------------------------------------------------------------------------
 	// Immediate版 即時に消えるのでリストの参照の仕方が異なる
 	//--------------------------------------------------------------------------------
-	public static void		DestroyImmediateChildObject( Transform parent_trans )
+	public static void DestroyImmediateChildObject(Transform parent_trans)
 	{
-		for( int i = parent_trans.childCount - 1; i >= 0; --i ){
-			GameObject.DestroyImmediate( parent_trans.GetChild( i ).gameObject );
+		for (int i = parent_trans.childCount - 1; i >= 0; --i)
+		{
+			GameObject.DestroyImmediate(parent_trans.GetChild(i).gameObject);
 		}
 	}
 
@@ -329,7 +345,39 @@ public class ScoreConfig : MonoBehaviour
 		if (isRusultMode)
 		{
 
+			if (!isStartGoalScore)
+			{
+				isStartGoalScore = true;
+				Invoke("GoalScoreAddAnimation", 1.0f);
+			}
 
+			//Aボタン(JoystickButton0)で決定する.
+			if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+			{
+
+				if (isEndGoalScore && !isEndNDieScore)
+				{
+					isEndNDieScore = true;
+				}
+
+				if (isStartGoalScore)
+				{
+					isMoveStartRusultLayout = true;
+				}
+			}
+
+			if (isMoveStartRusultLayout && !isMoveEndRusultLayout)
+			{
+				rtRusultLayout.localPosition += Vector3.left * 20.0f;
+
+				if (rtRusultLayout.localPosition.x <= -800.0f)
+				{
+					isMoveEndRusultLayout = true;
+					rtRusultLayout.localPosition = Vector3.left * 800.0f;
+					isEndGoalScore = true;
+					Invoke("NDieScoreAddAnimation", 0.5f);
+				}
+			}
 		}
 	}
 
@@ -337,25 +385,52 @@ public class ScoreConfig : MonoBehaviour
 	 *Rusultで使用する.*/
 	void GoalScoreAddAnimation()
 	{
-		float startScore = localPlayersScore[goalPlayerNum - 1];    //演出開始スコア.
-		float endScore = gameConfig.GetPlayerScore(goalPlayerNum);  //演出終了スコア.
-		float duration = 1.0f;  //演出時間.
+		if (isGoalScoreRusult)
+		{
+			float startScore = localPlayersScore[goalPlayerNum - 1];    //演出開始スコア.
+			float endScore = gameConfig.GetPlayerScore(goalPlayerNum);  //演出終了スコア.
+			float duration = 1.0f;  //演出時間.
 
-		//ゴールスコアからプレイヤースコアへ値を移す演出.
-		StartCoroutine(ScoreAnimation(targetTextScore, startScore, endScore, duration));
+			//ゴールスコアからプレイヤースコアへ値を移す演出.
+			StartCoroutine(ScoreAnimation(targetTextScore, startScore, endScore, duration));
 
-		startScore = addGoalScore;
-		endScore = 0;
+			startScore = addGoalScore;
+			endScore = 0;
 
-		StartCoroutine(ScoreAnimation(targetTextGScore, startScore, endScore, duration, true));
+			StartCoroutine(ScoreAnimation(targetTextGScore, startScore, endScore, duration, true));
 
-		Debug.Log("ScoreConfig:" + "ゴールスコア演出終了");
-
+			Debug.Log("ScoreConfig:" + "ゴールスコア演出終了");
+		}
 	}
 
+	/* 仲良死スコア加算演出を行います.
+	 *Rusultで使用する.*/
 	void NDieScoreAddAnimation()
 	{
-		
+		if (isNDieScoreRusult)
+		{
+			float startScore = 9999;    //演出開始スコア.
+			float endScore = 6666;  //演出終了スコア.
+			float duration = 1.0f;  //演出時間.
+
+			foreach (var listPS in listPlayerScore)
+			{
+				int playerNum = listPS.plyaerNumber;    //プレイヤー番号.
+				startScore = localPlayersScore[playerNum - 1]; //ローカルスコアを取得.
+				endScore = startScore + addNDieScore;   //演出終了時の値.
+				targetText = listPS.scoreBoard.transform.Find("Score").gameObject.GetComponent<Text>();  //スコア挿入先Textコンポーネント取得. 
+
+				//仲良死スコアからプレイヤースコアへ値を移す演出.
+				StartCoroutine(ScoreAnimation(targetText, startScore, endScore, duration));
+			}
+
+			startScore = addNDieScore;
+			endScore = 0;
+
+			StartCoroutine(ScoreAnimation(targetTextNDScore, startScore, endScore, duration, true));
+
+			Debug.Log("ScoreConfig:" + "仲良死スコア演算終了");
+		}
 	}
 
 	/* 開始スコアから終了スコアを設定し処理を行う.
@@ -391,5 +466,10 @@ public class ScoreConfig : MonoBehaviour
 		targetTex.text = (isAddPlus) ? "＋" + endScore.ToString() : endScore.ToString();
 
 	}
+
+
+	/* 全てのスコア集計演出（仲良死スコア集計が終わった段階）でtrueを返す.
+	 *RusultConfigで使用する.*/
+	public bool IsScoreEnd() { return isEndNDieScore; }
 
 }

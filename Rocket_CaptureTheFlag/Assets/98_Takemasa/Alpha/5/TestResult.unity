@@ -112,6 +112,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &38029319 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1311471161801622, guid: 371afccc4716eac45aa8a4e20e5b3971,
+    type: 2}
+  m_PrefabInternal: {fileID: 227554412}
 --- !u!1 &54015550
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,8 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824aa701fa7f7b140948ded5af7f4f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalText: {fileID: 1794301321}
   allDiefont: {fileID: 12800000, guid: adc30072a7ab7c04ea08ef3735d664d0, type: 3}
+  goalText: {fileID: 1794301319}
+  scoreConfig: {fileID: 772288151}
+  nextScene: {fileID: 38029319}
 --- !u!4 &54015552
 Transform:
   m_ObjectHideFlags: 0
@@ -1480,7 +1487,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1231131456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -800, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 65216306}
@@ -1490,7 +1497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -800, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1335715122
@@ -1716,7 +1723,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 134.99997}
-  m_SizeDelta: {x: 500, y: 80}
+  m_SizeDelta: {x: 588.4, y: 172.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1794301321
 MonoBehaviour:
