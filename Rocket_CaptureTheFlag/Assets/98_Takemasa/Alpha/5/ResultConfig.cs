@@ -14,17 +14,18 @@ public class ResultConfig : MonoBehaviour {
 	public GameObject scoreConfig; //スコアコンフィグのオブジェクト(実体はCanvas).
 	public GameObject nextScene;	//シーンマネージャー.
 
+	GameConfig gameConfig;  //GameConfigのコンポーネント.
 	int goalPlayerNum;	//ゴールしたプレイヤー番号.
 	Text textGoal;	//ゴールテキストのテキスト.
-	Shadow shadowGoal;	//ゴールテキストのシャドウ.
+	Shadow shadowGoal;	//ゴールテキストのシャドウ.	
 
 	// Use this for initialization
 	void Start () {
 
-		GameObject gameConfig = GameObject.FindGameObjectWithTag("GameConfig"); //タグからGameConfigを取得す.
+		gameConfig = GameObject.FindGameObjectWithTag("GameConfig").GetComponent<GameConfig>(); //タグからGameConfigを取得す.
 
-		goalPlayerNum = gameConfig.GetComponent<GameConfig>().GetGoalPlayerNumber(); //ゴールしたプレイヤー番号を受渡.
-
+		goalPlayerNum = gameConfig.GetGoalPlayerNumber(); //ゴールしたプレイヤー番号を受渡.
+		
 		textGoal = goalText.gameObject.GetComponent<Text>();
 
 		shadowGoal = goalText.gameObject.GetComponent<Shadow>();
@@ -38,12 +39,11 @@ public class ResultConfig : MonoBehaviour {
 		//ゴールしたプレイヤーがいない時.
 		else
 		{
+			//テキストのデザインを変更す.
 			textGoal.font = allDiefont;
 			textGoal.text = "全　滅";
 			textGoal.fontSize = 88;
 			textGoal.color = new Color(163f / 255f,15f / 255f,12 / 255f); // 163,15,12
-
-			
 			shadowGoal.effectDistance.Set(1.0f,-5.0f);  //x 1 y -5
 			shadowGoal.effectColor = new Color(253f / 255f,215f / 255f,0);	//253 , 215 , 0
 		}
@@ -56,7 +56,8 @@ public class ResultConfig : MonoBehaviour {
 		//全てのスコア集計が終了した時、シーンを移動する.
 		if(scoreConfig.GetComponent<ScoreConfig>().IsScoreEnd())
 		{
-			nextScene.SetActive(true);
+			gameConfig.InitBounus();	//ボーナスをリセット.	
+			nextScene.SetActive(true); //シーンを移動する.
 		}
 		
 	}

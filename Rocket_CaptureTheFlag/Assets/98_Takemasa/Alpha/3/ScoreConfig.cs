@@ -66,7 +66,6 @@ public class ScoreConfig : MonoBehaviour
 	RectTransform rtRusultLayout;   //リザルトレイアウトのRectトランスフォーム.
 	bool isStartGoalScore = false;  //ゴールスコア集計始めた時 trueになる.
 	bool isEndGoalScore = false;  //ゴールスコア集計を終えた時 trueになる.
-								  //bool isStartNdieScore = false;  //仲良死スコア集計を始めた時 trueになる.
 	bool isEndNDieScore = false;  //仲良死スコア集計を終えた時 trueになる.
 	bool isMoveStartRusultLayout = false; //リザルトレイアウトが移動開始した時 true.
 	bool isMoveEndRusultLayout = false; //リザルトレイアウトが移動し終えた時 true.
@@ -94,7 +93,7 @@ public class ScoreConfig : MonoBehaviour
 		{
 
 			goalPlayerNum = gameConfig.GetGoalPlayerNumber();//ゴールしたプレイヤー番号を取得.
-			rtRusultLayout = gameObject.transform.Find("RusultLayout").GetComponent<RectTransform>();
+			rtRusultLayout = gameObject.transform.Find("RusultLayout").GetComponent<RectTransform>(); //RusultLayoutのRectTransformを取得.
 			InitPlayerScore();  //GameConfigへポイント追加を済ます.
 			InitRusultGoal(); //ゴールリザルト演出の準備.
 			InitRusultNakayoDie();//仲良死演出の準備.
@@ -469,7 +468,16 @@ public class ScoreConfig : MonoBehaviour
 
 
 	/* 全てのスコア集計演出（仲良死スコア集計が終わった段階）でtrueを返す.
+	 * プレイヤーが１人の場合、最初にボタンが押下された時点でtrueになるisMoveStartRusultLayoutを返す. 
 	 *RusultConfigで使用する.*/
-	public bool IsScoreEnd() { return isEndNDieScore; }
+	public bool IsScoreEnd() 
+	{
+		if(gameConfig.GetEntryPlayerCount() == 1)
+		{
+			return isMoveStartRusultLayout;
+		}		
+	 
+		return isEndNDieScore; 
+	}
 
 }

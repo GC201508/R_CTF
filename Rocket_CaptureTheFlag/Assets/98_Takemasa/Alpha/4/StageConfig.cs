@@ -71,6 +71,7 @@ public class StageConfig : MonoBehaviour
 	{
 		NakayoDieRocket();
 		GoalRocket();
+		AllExplosionRocket();
 	}
 
 	/*スタートポイントからRocketを生成する*/
@@ -117,6 +118,16 @@ public class StageConfig : MonoBehaviour
 				gameConfig.GetComponent<GameConfig>().OnBounusNakayoDie(goalPlayerNumber);  //該当プレイヤーに仲良死ボーナスを設定.
 			}
 			
+		}
+	}
+
+	/*Rocketが全滅した時にシーン移動する処理*/
+	void AllExplosionRocket()
+	{
+		GameObject[] Player = GameObject.FindGameObjectsWithTag("Player");
+		if(Player.Length == 0)
+		{
+			sceneManager.SetActive(true); //シーンを移動する.
 		}
 	}
 
