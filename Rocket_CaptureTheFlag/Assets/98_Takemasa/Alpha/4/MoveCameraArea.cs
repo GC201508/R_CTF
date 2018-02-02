@@ -31,6 +31,7 @@ public class MoveCameraArea : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		ChangeOffSetCameraArea();
+		StayRocketArea();
 	}
 
 	/*カメラの範囲外のゴールポイントの位置に応じてエリア位置を変える.*/
@@ -68,6 +69,17 @@ public class MoveCameraArea : MonoBehaviour {
 		
 		//Offsetサイズを確定.
 		cameraArea2d.offset = offset;
+	}
+
+	/*プレイヤーがカメラエリアに重なっている時にisStayRocketをtrueにする*/
+	void StayRocketArea()
+	{
+		bool isSR = false;
+		foreach(GameObject obj in playerRocket)
+		{
+			if(obj.GetComponent<R_move>().IsCameraAreaStay()) isSR = true;
+		}
+		isStayRocket = isSR;
 	}
 
 	void SetOffSet(float x,float y)

@@ -75,7 +75,7 @@ public class R_move : MonoBehaviour {
 
 	/*カメラエリアと重なっている時、trueを返す.
 	 * MoveCameraAreaで使用する.*/
-	bool IsCameraAreaStay() {return isCameraAreaStay; }
+	public bool IsCameraAreaStay() {return isCameraAreaStay; }
 
 	/*Trigger2Dと重なり続ける時に呼ばれる関数*/
 	void OnTriggerStay2D(Collider2D der2d)
