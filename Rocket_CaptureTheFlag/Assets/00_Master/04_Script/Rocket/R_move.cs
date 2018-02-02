@@ -84,12 +84,18 @@ public class R_move : MonoBehaviour {
 		if(der2d.gameObject.tag == "CameraArea")
 		{
 			isCameraAreaStay = true;
-		}
-		else
-		{
-			isCameraAreaStay = false;
+			Debug.Log("(R_move)重なっとるよ！！！！");
 		}
 		
+	}
+
+	void OnTriggerExit2D(Collider2D der2d)
+	{
+		if(der2d.gameObject.tag == "CameraArea")
+		{
+			isCameraAreaStay = false;
+			Debug.Log("(R_move) 重なってないよ！！");
+		}
 	}
 	
 }
