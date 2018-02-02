@@ -373,7 +373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4c536758b3c5f49a0d08fcfb9f8871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabSB: {fileID: 1643575806327962, guid: dce27f63a49d7cc438274aab562ef97d, type: 2}
   rocketColor:
   - {fileID: 2800000, guid: 45343350ee2b0654eb3d852b33efb076, type: 3}
   - {fileID: 2800000, guid: b814b0a2b396866448afc049ac8e5b6f, type: 3}
@@ -381,7 +380,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c1402caf3420fc946bfba2cacd3ffa06, type: 3}
   isStageSelectMode: 1
   isRusultMode: 0
+  prefabSB: {fileID: 1643575806327962, guid: dce27f63a49d7cc438274aab562ef97d, type: 2}
   goalRusult: {fileID: 0}
+  ndRusult: {fileID: 0}
+  addGoalScore: 9999
+  addNDieScore: 4444
 --- !u!224 &718526120 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224090954590085328, guid: dce27f63a49d7cc438274aab562ef97d,

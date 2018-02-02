@@ -127,8 +127,14 @@ public class StageConfig : MonoBehaviour
 		GameObject[] Player = GameObject.FindGameObjectsWithTag("Player");
 		if(Player.Length == 0)
 		{
-			sceneManager.SetActive(true); //シーンを移動する.
+			Invoke("InvokeActiveSceneManager",3.0f);
 		}
+	}
+
+	/*Invoke用シーン移動*/
+	void InvokeActiveSceneManager()
+	{
+		sceneManager.SetActive(true); //シーンを移動する.
 	}
 
 }

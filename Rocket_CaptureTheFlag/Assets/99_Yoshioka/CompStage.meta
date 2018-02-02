@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Rocket_CaptureTheFlag/Assets/99_Yoshioka/CompStage.meta
 guid: 89ffb49d240a6eb45bca21158919acd2
 folderAsset: yes
 timeCreated: 1517541511
+=======
+guid: bdf3beb3659ee9545aa995d753e5734a
+folderAsset: yes
+timeCreated: 1517541090
+>>>>>>> f88b6cb46086cf50a99d61b0c010bc6175151eb7:Rocket_CaptureTheFlag/Assets/99_Yoshioka/CompStage.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

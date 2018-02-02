@@ -35,14 +35,14 @@ public class R_Explosion : MonoBehaviour
 
 		if (isDestroy)
 		{
-			Invoke("InvokeDestroyObject", 3.0f);
+			DestroyObject();
 		}
 
 
 	}
 
 	/*爆発オブジェクトとRocketオブジェクトを削除する*/
-	void InvokeDestroyObject()
+	void DestroyObject()
 	{
 		Destroy(this.gameObject);
 	}
@@ -66,9 +66,9 @@ public class R_Explosion : MonoBehaviour
 	void RocketExplosion()
 	{
 		//プレハブからインスタンスを生成
-		GameObject obj = (GameObject)Instantiate(explosion, transform.position, Quaternion.identity);
-		// 作成した爆発オブジェクトを子として登録
-		obj.transform.parent = transform;
+		//GameObject obj = (GameObject)Instantiate(explosion, transform.position, Quaternion.identity);
+		GameObject obj = (GameObject)Instantiate(explosion, transform.position, transform.localRotation);		
+
 		//スケール調整
 		obj.transform.localScale = new Vector3(20.0f, 20.0f, 20.0f);
 
@@ -77,6 +77,7 @@ public class R_Explosion : MonoBehaviour
 
 		//画像を非表示にする
 		Destroy(GetComponent<SpriteRenderer>());
+
 
 		isDestroy = true;
 	}
