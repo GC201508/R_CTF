@@ -17,10 +17,10 @@ using UnityEngine;
 	・ゴールしたプレイヤーを取得する => Resultで必要なため.
 	・プレイヤー同士で衝突したプレイヤーを取得する => 同上.
 
-＜Result＞
+＜Result(ScoreConfig)＞
 	・旗取ったプレイヤーに得点を加算する.
 	・仲良死ボーナス(プレイヤー同士で爆発)で少し得点追加.
-	・その他変動なし.
+	・加算後、SelectStageに戻る。　ボーナスのリセットを行う.
 
 
  -	-	-	-	-	-	-	-	-*/
@@ -59,9 +59,9 @@ public class GameConfig : MonoBehaviour
 			SetEntryPlayer(2);
 
 			//OnBounusGoal(1);
-			//OnBounusNakayoDie(2);
+			OnBounusNakayoDie(2);
 			//OnBounusNakayoDie(4);
-			//OnBounusNakayoDie(3);
+			OnBounusNakayoDie(3);
 		}
 
 		//このオブジェクトはシーン遷移で破棄されない.
@@ -93,6 +93,10 @@ public class GameConfig : MonoBehaviour
 	/*ゲームに参加の有無を取得する。 
 	 * EntryConfig・StageConfigが使用する*/
 	public bool IsEntryPlayer(int playerNumber) { return isEntryPlayer[playerNumber - 1]; }
+
+	/*ゲーム参加人数を返す.
+	 * RusultConfigで使用する.*/
+	public int GetEntryPlayerCount() { return listScoreBounus.Count; }
 
 	/*指定したプレイヤーのスコアを任意の値で足す(負の値で引ける).
 	 * ResultConfigで使用する.				*/

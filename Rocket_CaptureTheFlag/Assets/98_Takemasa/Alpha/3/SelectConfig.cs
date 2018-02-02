@@ -29,6 +29,7 @@ public class SelectConfig : MonoBehaviour
 
 	int stageMax = 0;   //登録したステージ数。 slectStage配列の長さで初期化してね.
 	int selectNum = 0;  //現在選択しとるステージ.
+	bool isInputAxis = false;   //Axisに入力があるとき.
 
 
 	// Use this for initialization
@@ -79,8 +80,14 @@ public class SelectConfig : MonoBehaviour
 		bool isChangeStage = false; //選択しとるステージに変更があったらtrueになる.
 		int changeNum = 0;  //変更する数.
 
+		//入力がない場合.
+		if (Axis == 0)
+		{
+			isInputAxis = false;
+		}
+
 		//入力があった場合.
-		if (Axis != 0)
+		if (Axis != 0 && !isInputAxis)
 		{
 			//左(-1)の入力があって,selectNumが0でない時.
 			if (Axis == -1 && selectNum != 0)
@@ -88,6 +95,8 @@ public class SelectConfig : MonoBehaviour
 				selectNum--; //１減らす.
 				changeNum = 1;  //1入れる.
 				isChangeStage = true;
+				isInputAxis = true;
+
 			}
 
 			//右(1)の入力があって,selectNumがMaxでない時.
@@ -96,6 +105,7 @@ public class SelectConfig : MonoBehaviour
 				selectNum++; //１増やす.
 				changeNum = -1; //-1入れる.
 				isChangeStage = true;
+				isInputAxis = true;
 			}
 
 		}
