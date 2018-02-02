@@ -13,12 +13,13 @@ public class gameCamera : MonoBehaviour {
     Vector3 toGoalPoint;
     //Vector3 toNextCorse;
     bool Awake = true;
-    private GameObject nearPlayer;
+    private GameObject nearPlayer = null;
     MoveCameraArea cameraArea;
 
     // Use this for initialization
     void Start () {
         nearPlayer = GameObject.Find("Player_01");
+        GoalPoint = GameObject.FindGameObjectWithTag("GoalFlag");
     }
 
     // Update is called once per frame
@@ -50,7 +51,7 @@ public class gameCamera : MonoBehaviour {
         moveSpeed = nearPlayer.GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
 
         //CameraPos += toNext * moveSpeed * Time.deltaTime;
-        if ((toGoalPointDis.x > 2.0f || toGoalPointDis.y > 2.0f) && cameraArea.IsRocketStay() == true)
+        if ((toGoalPointDis.x > 2.0f || toGoalPointDis.y > 2.0f) && cameraArea.IsRocketStay() == false)
         {
             CameraPos += moveVec * moveSpeed * Time.deltaTime;
         }
