@@ -11,6 +11,7 @@ public class R_move : MonoBehaviour {
     Rigidbody2D rb2d;
     float beforeAxis;
     string sHorizontal;
+	bool isCameraAreaStay = false;
 
     public int joyNum = 0; //開発用にpublicにする.
 
@@ -71,4 +72,30 @@ public class R_move : MonoBehaviour {
 	
 	/*プレイヤーの番号を返す. StageConfigで使う.*/
 	public int GetJoystickNumber(){return joyNum;}
+
+	/*カメラエリアと重なっている時、trueを返す.
+	 * MoveCameraAreaで使用する.*/
+	public bool IsCameraAreaStay() {return isCameraAreaStay; }
+
+	/*Trigger2Dと重なり続ける時に呼ばれる関数*/
+	void OnTriggerStay2D(Collider2D der2d)
+	{
+		//カメラエリアに重なっとる時.
+		if(der2d.gameObject.tag == "CameraArea")
+		{
+			isCameraAreaStay = true;
+			Debug.Log("(R_move)重なっとるよ！！！！");
+		}
+		
+	}
+
+	void OnTriggerExit2D(Collider2D der2d)
+	{
+		if(der2d.gameObject.tag == "CameraArea")
+		{
+			isCameraAreaStay = false;
+			Debug.Log("(R_move) 重なってないよ！！");
+		}
+	}
+	
 }

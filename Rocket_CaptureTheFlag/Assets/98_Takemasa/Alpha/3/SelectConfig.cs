@@ -123,7 +123,7 @@ public class SelectConfig : MonoBehaviour
 	void DecisionStage()
 	{
 		//Aボタン(JoystickButton0)で決定する.
-		if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+		if (Input.GetKeyDown(KeyCode.JoystickButton0))
 		{
 			SceneManager.LoadScene(listStageContent[selectNum].Stage.name);
 		}

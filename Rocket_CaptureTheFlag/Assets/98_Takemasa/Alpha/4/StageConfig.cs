@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 /*	-	-	-	-	-	-	-	-	-	-	-	-	-
  
@@ -19,12 +20,22 @@ public class StageConfig : MonoBehaviour
 	public GameObject sceneManager; //シーンマネジャ.
 	public GameObject rocket;       //Rocketのプレファブ.
 	public Sprite[] rocketColor;    //Rocket4色. 
-	public GameObject[] startPoint; //スタートポイント.
+	
+	
 
 
 	// Use this for initialization
 	void Start()
 	{
+		GameObject[] sortSPoint = GameObject.FindGameObjectsWithTag("StartPoint"); //スタートポイント.
+		GameObject[] startPoint = new GameObject [4];	//ソート後のスタートポイントを格納.
+		Regex re = new Regex(@"[^1-4]");	//文字列から数字(1~4)だけ取り出す.
+
+		foreach (GameObject obj in sortSPoint)
+		{
+			int index = int.Parse(re.Replace(obj.name,""));	//オブジェクトの名前から数値のみ取得.
+			startPoint[index - 1] = obj;	//数値通りに配列に追加.
+		}
 
 		//テストモードじゃない時.
 		if (!testModel)

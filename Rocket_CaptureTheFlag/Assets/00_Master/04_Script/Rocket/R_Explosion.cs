@@ -51,10 +51,10 @@ public class R_Explosion : MonoBehaviour
 	bool CheckScreenOut(Vector3 _pos)
 	{
 		Vector3 view_pos = Camera.main.WorldToViewportPoint(_pos);
-		if (view_pos.x < -0.0f ||
-		   view_pos.x > 1.0f ||
-		   view_pos.y < -0.0f ||
-		   view_pos.y > 1.0f)
+		if (view_pos.x < -0.0f ||	//左外.
+		   view_pos.x > 1.0f ||		//右外.
+		   view_pos.y < -0.0f ||	//下外.
+		   view_pos.y > 1.0f)		//上外.
 		{
 			// 範囲外 
 			return true;

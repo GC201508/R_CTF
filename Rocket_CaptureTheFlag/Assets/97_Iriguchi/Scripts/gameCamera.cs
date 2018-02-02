@@ -6,18 +6,18 @@ public class gameCamera : MonoBehaviour {
 
     Vector3 moveVec = Vector3.zero;
     float moveSpeed;
-    public float moveTime = 3.0f;
+    public float moveTime = 6.0f;
     public GameObject GoalPoint;
     GameObject Corse;
     //public GameObject Player;
     Vector3 toGoalPoint;
-    Vector3 toNextCorse;
-    bool Awake;
+    //Vector3 toNextCorse;
+    bool Awake = true;
     private GameObject nearPlayer;
+    MoveCameraArea cameraArea;
 
     // Use this for initialization
     void Start () {
-        Awake = true;
         nearPlayer = GameObject.Find("Player_01");
     }
 
@@ -38,11 +38,11 @@ public class gameCamera : MonoBehaviour {
         }
         //CameraPos += moveVec * Time.deltaTime;
 
-        //if (Awake == true)
-        //{
-        //    Player = GameObject.Find("Player_1P");
-        //    Awake = false;
-        //}
+        if (Awake == true)
+        {
+            cameraArea = GameObject.Find("CameraArea").GetComponent<MoveCameraArea>();
+            Awake = false;
+        }
         //CreateMoveSpeed(Player);
 
         //プレイヤーを入れ込む、検索方法検討中。
@@ -50,7 +50,7 @@ public class gameCamera : MonoBehaviour {
         moveSpeed = nearPlayer.GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
 
         //CameraPos += toNext * moveSpeed * Time.deltaTime;
-        if (toGoalPointDis.x > 2.0f || toGoalPointDis.y > 2.0f)
+        if ((toGoalPointDis.x > 2.0f || toGoalPointDis.y > 2.0f) && cameraArea.IsRocketStay() == true)
         {
             CameraPos += moveVec * moveSpeed * Time.deltaTime;
         }

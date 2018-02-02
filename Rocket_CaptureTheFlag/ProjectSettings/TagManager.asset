@@ -8,6 +8,8 @@ TagManager:
   - GameConfig
   - RocketImage
   - NDSB
+  - StartPoint
+  - CameraArea
   layers:
   - Default
   - TransparentFX

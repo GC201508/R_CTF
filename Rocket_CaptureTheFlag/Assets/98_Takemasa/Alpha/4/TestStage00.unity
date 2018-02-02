@@ -163,6 +163,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1730646455599556, guid: ba45992000a7d604292257de96a42512, type: 2}
+      propertyPath: m_TagString
+      value: StartPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba45992000a7d604292257de96a42512, type: 2}
   m_IsPrefabParent: 0
@@ -588,6 +592,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1870131126520878, guid: 3c32d41d346214243aa52159895e8ab6, type: 2}
+      propertyPath: m_TagString
+      value: StartPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c32d41d346214243aa52159895e8ab6, type: 2}
   m_IsPrefabParent: 0
@@ -801,7 +809,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1046332517}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &506266087
 SpriteRenderer:
@@ -1303,10 +1311,10 @@ Transform:
   - {fileID: 471435201}
   - {fileID: 742740292}
   - {fileID: 1840454109}
+  - {fileID: 506266086}
   - {fileID: 34740517}
   - {fileID: 471179061}
   - {fileID: 1222716124}
-  - {fileID: 506266086}
   - {fileID: 616136421}
   - {fileID: 1979542671}
   - {fileID: 1871144176}
@@ -1623,6 +1631,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1773687947114328, guid: 92473f1ef4f66e44e88e3f42c8b02c48, type: 2}
+      propertyPath: m_TagString
+      value: StartPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92473f1ef4f66e44e88e3f42c8b02c48, type: 2}
   m_IsPrefabParent: 0
@@ -1825,6 +1837,10 @@ Prefab:
     - target: {fileID: 4883150273224566, guid: 9bb201094d6c1534da091801814bc1ac, type: 2}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478760597868210, guid: 9bb201094d6c1534da091801814bc1ac, type: 2}
+      propertyPath: m_TagString
+      value: StartPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bb201094d6c1534da091801814bc1ac, type: 2}

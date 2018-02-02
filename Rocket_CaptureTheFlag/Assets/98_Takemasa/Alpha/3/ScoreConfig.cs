@@ -351,7 +351,7 @@ public class ScoreConfig : MonoBehaviour
 			}
 
 			//Aボタン(JoystickButton0)で決定する.
-			if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+			if (Input.GetKeyDown(KeyCode.JoystickButton0))
 			{
 
 				if (isEndGoalScore && !isEndNDieScore)
