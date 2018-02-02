@@ -66,8 +66,9 @@ public class R_Explosion : MonoBehaviour
 	void RocketExplosion()
 	{
 		//プレハブからインスタンスを生成
-		GameObject obj = (GameObject)Instantiate(explosion, transform.position, Quaternion.identity);
-		
+		//GameObject obj = (GameObject)Instantiate(explosion, transform.position, Quaternion.identity);
+		GameObject obj = (GameObject)Instantiate(explosion, transform.position, transform.localRotation);		
+
 		//スケール調整
 		obj.transform.localScale = new Vector3(20.0f, 20.0f, 20.0f);
 
