@@ -693,7 +693,7 @@ GameObject:
   - component: {fileID: 1162403268}
   - component: {fileID: 1162403267}
   m_Layer: 0
-  m_Name: Stage00_Icon
+  m_Name: TestStage00_Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 1319271865}
   - component: {fileID: 1319271864}
   m_Layer: 0
-  m_Name: Stage01_Icon
+  m_Name: TestStage01_Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 1339206427}
   - component: {fileID: 1339206428}
   m_Layer: 0
-  m_Name: Stage01
+  m_Name: TestStage01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 1852045137}
   - component: {fileID: 1852045136}
   m_Layer: 0
-  m_Name: Stage00
+  m_Name: TestStage00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
