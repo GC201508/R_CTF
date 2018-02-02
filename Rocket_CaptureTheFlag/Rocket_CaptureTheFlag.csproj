@@ -224,6 +224,7 @@
     <Compile Include="Assets\00_Master\04_Script\Rocket\R_Explosion.cs" />
     <Compile Include="Assets\00_Master\04_Script\Rocket\R_Goal.cs" />
     <Compile Include="Assets\00_Master\04_Script\Rocket\R_move.cs" />
+    <Compile Include="Assets\97_Iriguchi\Scripts\gameCamera.cs" />
     <Compile Include="Assets\98_Takemasa\Alpha\1_Title\TitleScript.cs" />
     <Compile Include="Assets\98_Takemasa\Alpha\2_Entry\ColorSprict.cs" />
     <Compile Include="Assets\98_Takemasa\Alpha\2_Entry\EntryConfig.cs" />

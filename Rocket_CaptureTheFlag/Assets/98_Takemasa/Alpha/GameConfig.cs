@@ -58,10 +58,10 @@ public class GameConfig : MonoBehaviour
 			SetEntryPlayer(3);
 			SetEntryPlayer(2);
 
-			OnBounusGoal(1);
-			OnBounusNakayoDie(2);
-			OnBounusNakayoDie(4);
-			OnBounusNakayoDie(3);
+			//OnBounusGoal(1);
+			//OnBounusNakayoDie(2);
+			//OnBounusNakayoDie(4);
+			//OnBounusNakayoDie(3);
 		}
 
 		//このオブジェクトはシーン遷移で破棄されない.

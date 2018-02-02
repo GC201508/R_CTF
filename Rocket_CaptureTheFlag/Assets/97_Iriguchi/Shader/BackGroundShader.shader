@@ -41,11 +41,16 @@
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
 
-			//おそらくここで移動量を決めているはず...
+			//ここにカメラのポジションを渡せばいいはず．．．
+			//今はポジションを直入している
 			fixed2 scrolledUV = IN.uv_MainTex;
-			scrolledUV.x += _Xposition;
-			scrolledUV.y += _Yposition;
+			scrolledUV.x += _Xposition * _Time;
+			scrolledUV.y += _Yposition * _Time;
 
+			//scrolledUV.x = Camera.transform.x;
+			//scrolledUV.y = Camera.transform.y;
+
+			//変更したuv座標の値を上書き
 			fixed4 c = tex2D (_MainTex, scrolledUV) * _Color;
 			o.Albedo = c.rgb;
 
