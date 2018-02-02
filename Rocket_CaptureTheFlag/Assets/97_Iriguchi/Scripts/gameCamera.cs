@@ -37,6 +37,7 @@ public class gameCamera : MonoBehaviour {
         //}
         //CreateMoveSpeed(Player);
 
+        //プレイヤーを入れ込む、検索方法検討中。
         moveSpeed = GameObject.Find("Player_1P").GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
 
         CameraPos += toGoalPoint * moveSpeed;
@@ -44,12 +45,12 @@ public class gameCamera : MonoBehaviour {
 
 	}
 
-    void JDI (Vector3 toGPD) //ゴールポイントまでの距離を秒数で割るんだ！！Just Do It!!(引数はゴールポイントとの距離)
+    void JDI (Vector3 toGPD) //ゴールポイントまでの距離を秒数で割るんだ！！(引数はゴールポイントとの距離)
     {
         moveVec = toGPD / moveTime;
     }
 
-    void CreateMoveSpeed(GameObject player)
+    void CreateMoveSpeed(GameObject player) //プレイヤーの移動速度を取得していろいろ調整。
     {
         if(player.tag == "Player")
         {
