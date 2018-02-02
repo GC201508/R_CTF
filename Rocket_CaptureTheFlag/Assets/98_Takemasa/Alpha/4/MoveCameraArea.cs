@@ -14,7 +14,7 @@ public class MoveCameraArea : MonoBehaviour {
 	GameObject goalPoint;	//ゴールポインツ.
 
 	Vector2 wihgtSize = new Vector2(10.0f,0.0f);
-	Vector2 heightSize = new Vector2(0.0f,7.5f);
+	Vector2 heightSize = new Vector2(0.0f,6.0f);
 	Vector2 skewSizeVec2 = new Vector2(7.0f,5.0f);
 	Vector2 offset;
 
