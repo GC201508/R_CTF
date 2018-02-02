@@ -8,18 +8,22 @@ public class gameCamera : MonoBehaviour {
     float moveSpeed;
     public float moveTime = 3.0f;
     public GameObject GoalPoint;
-    public GameObject Player;
+    //public GameObject Player;
     Vector3 toGoalPoint;
     bool Awake;
+    private GameObject nearPlayer;
 
     // Use this for initialization
     void Start () {
         Awake = true;
+        nearPlayer = serchTag(gameObject, "Player");
+
     }
 
     // Update is called once per frame
     void Update () {
         Vector3 CameraPos = transform.position;
+        nearPlayer = serchTag(gameObject, "Player");
 
         //ゴールポイントとの距離を保持する変数
         Vector3 toGoalPointDis = GoalPoint.transform.position - CameraPos;
@@ -39,8 +43,10 @@ public class gameCamera : MonoBehaviour {
 
         //プレイヤーを入れ込む、検索方法検討中。
         moveSpeed = GameObject.Find("Player_1P").GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
+        //moveSpeed = nearPlayer.GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
 
-        CameraPos += toGoalPoint * moveSpeed;
+        //CameraPos += toGoalPointDis * moveSpeed * Time.deltaTime;
+        CameraPos += moveVec * moveSpeed * Time.deltaTime;
         transform.position = new Vector3(CameraPos.x, CameraPos.y, -10);
 
 	}
@@ -54,7 +60,36 @@ public class gameCamera : MonoBehaviour {
     {
         if(player.tag == "Player")
         {
-            moveSpeed = Player.GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
+            //moveSpeed = Player.GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
         }
+    }
+
+
+    //指定されたTagの中で最も距離の近いGameObjectを取得する関数
+    GameObject serchTag(GameObject nowObj, string tagname)
+    {
+        float tmpDis = 0;               //距離を保持する用の一時変数
+        float nearDis = 0;              //最も近いオブジェクトを保持する変数
+
+        GameObject targetObj = null;    //オブジェクト
+
+        //タグ付けされたオブジェクトを配列で取得
+        foreach(GameObject obs in GameObject.FindGameObjectsWithTag(tagname))
+        {
+            //自身と取得したオブジェクトの距離を取得
+            tmpDis = Vector3.Distance(obs.transform.position, nowObj.transform.position);
+
+            //オブジェクトの距離が近いか、距離0であればオブジェクト名を取得。
+            //一時変数に取得
+            if(nearDis == 0 || nearDis < tmpDis)
+            {
+                nearDis = tmpDis;
+                targetObj = obs;
+
+            }
+        }
+
+        //最も近かったオブジェクトを返す。
+        return targetObj;
     }
 }
