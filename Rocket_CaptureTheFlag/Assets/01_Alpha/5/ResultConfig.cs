@@ -35,6 +35,8 @@ public class ResultConfig : MonoBehaviour {
 		if(goalPlayerNum != 0)
 		{
 			textGoal.text = goalPlayerNum + " P　ゴ ー ル"; //ゴールしたプレイヤーのテキスト表示.
+			ColorEffect ce = GetComponent<ColorEffect>();
+			StartCoroutine(ce.LoopChangeTextColor(textGoal,goalPlayerNum,0.5f));
 		}
 		//ゴールしたプレイヤーがいない時.
 		else
