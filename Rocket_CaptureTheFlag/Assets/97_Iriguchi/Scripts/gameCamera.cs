@@ -6,8 +6,8 @@ public class gameCamera : MonoBehaviour {
 
     Vector3 moveVec = Vector3.zero;
     float moveSpeed;
-    public float moveTime = 6.0f;
-    public GameObject GoalPoint;
+    float moveTime = 4.7f;
+    GameObject GoalPoint;
     GameObject Corse;
     //public GameObject Player;
     Vector3 toGoalPoint;
@@ -51,7 +51,7 @@ public class gameCamera : MonoBehaviour {
         moveSpeed = nearPlayer.GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
 
         //CameraPos += toNext * moveSpeed * Time.deltaTime;
-        if ((toGoalPointDis.x > 2.0f || toGoalPointDis.y > 2.0f) && cameraArea.IsRocketStay() == false)
+        if (cameraArea.IsRocketStay() && (toGoalPointDis.x > 2.0f || toGoalPointDis.y > 2.0f))
         {
             CameraPos += moveVec * moveSpeed * Time.deltaTime;
         }
@@ -60,7 +60,7 @@ public class gameCamera : MonoBehaviour {
         //{
         //    ChangeNextChild();
         //}
-   
+
         transform.position = new Vector3(CameraPos.x, CameraPos.y, -10);
 
 	}

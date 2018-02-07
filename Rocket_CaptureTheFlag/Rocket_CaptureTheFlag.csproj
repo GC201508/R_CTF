@@ -224,18 +224,18 @@
     <Compile Include="Assets\00_Master\04_Script\Rocket\R_Explosion.cs" />
     <Compile Include="Assets\00_Master\04_Script\Rocket\R_Goal.cs" />
     <Compile Include="Assets\00_Master\04_Script\Rocket\R_move.cs" />
+    <Compile Include="Assets\01_Alpha\1_Title\TitleScript.cs" />
+    <Compile Include="Assets\01_Alpha\2_Entry\ColorSprict.cs" />
+    <Compile Include="Assets\01_Alpha\2_Entry\EntryConfig.cs" />
+    <Compile Include="Assets\01_Alpha\3\ScoreConfig.cs" />
+    <Compile Include="Assets\01_Alpha\3\SelectConfig.cs" />
+    <Compile Include="Assets\01_Alpha\4\MoveCameraArea.cs" />
+    <Compile Include="Assets\01_Alpha\4\StageConfig.cs" />
+    <Compile Include="Assets\01_Alpha\5\ColorEffect.cs" />
+    <Compile Include="Assets\01_Alpha\5\ResultConfig.cs" />
+    <Compile Include="Assets\01_Alpha\GameConfig.cs" />
+    <Compile Include="Assets\01_Alpha\SceneSprict.cs" />
     <Compile Include="Assets\97_Iriguchi\Scripts\gameCamera.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\1_Title\TitleScript.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\2_Entry\ColorSprict.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\2_Entry\EntryConfig.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\3\ScoreConfig.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\3\SelectConfig.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\4\MoveCameraArea.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\4\StageConfig.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\5\ColorEffect.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\5\ResultConfig.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\GameConfig.cs" />
-    <Compile Include="Assets\98_Takemasa\Alpha\SceneSprict.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\97_Iriguchi\Shader\BackGroundShader.shader" />
