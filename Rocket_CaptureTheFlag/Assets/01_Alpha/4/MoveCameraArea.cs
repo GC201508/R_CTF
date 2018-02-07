@@ -9,6 +9,7 @@ using UnityEngine;
 public class MoveCameraArea : MonoBehaviour {
 
 	//float firstSpeed;	//一番早い速度.
+	GameObject[] playerRocket;
 	BoxCollider2D cameraArea2d;	//カメラエリアのBoxCollider2D.
 	GameObject goalPoint;	//ゴールポインツ.
 
@@ -22,6 +23,7 @@ public class MoveCameraArea : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cameraArea2d = gameObject.GetComponent<BoxCollider2D>();
+		playerRocket =  GameObject.FindGameObjectsWithTag("Player");	//プレイヤー取得.
 		goalPoint = GameObject.FindGameObjectWithTag("GoalFlag");	//ゴールポイント取得.
 		
 	}
@@ -73,14 +75,9 @@ public class MoveCameraArea : MonoBehaviour {
 	void StayRocketArea()
 	{
 		bool isSR = false;
-		GameObject[] playerRocket =  GameObject.FindGameObjectsWithTag("Player");	//プレイヤー取得.
 		foreach(GameObject obj in playerRocket)
 		{
-			if(obj.GetComponent<R_move>().IsCameraAreaStay())
-			{ 
-				isSR = true;
-				Debug.Log("(MoveCameraArea)重なっとるよ！！！！");
-			}
+			if(obj.GetComponent<R_move>().IsCameraAreaStay()) isSR = true;
 		}
 		isStayRocket = isSR;
 	}

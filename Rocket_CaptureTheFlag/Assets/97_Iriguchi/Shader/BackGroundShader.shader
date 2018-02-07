@@ -1,4 +1,6 @@
-﻿Shader "Custom/BackGroundShader" {
+﻿// Upgrade NOTE: commented out 'float3 _WorldSpaceCameraPos', a built-in variable
+
+Shader "Custom/BackGroundShader" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
@@ -12,6 +14,9 @@
 		LOD 200
 		
 		CGPROGRAM
+
+		#include "UnityCG.cginc"
+
 		// Physically based Standard lighting model, and enable shadows on all light types
 		//#pragma surface surf Standard fullforwardshadows
 		#pragma surface surf Standard alpha:fade
@@ -30,6 +35,8 @@
 		fixed4 _Color;
 		float _Xposition;
 		float _Yposition;
+		float3 beforePos;
+		float3 movePos;
 
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -44,11 +51,16 @@
 			//ここにカメラのポジションを渡せばいいはず．．．
 			//今はポジションを直入している
 			fixed2 scrolledUV = IN.uv_MainTex;
-			scrolledUV.x += _Xposition * _Time;
-			scrolledUV.y += _Yposition * _Time;
+			//scrolledUV.x += _Xposition * _Time;
+			//scrolledUV.y += _Yposition * _Time;
 
-			//scrolledUV.x = Camera.transform.x;
-			//scrolledUV.y = Camera.transform.y;
+
+			movePos = _WorldSpaceCameraPos - beforePos;
+			beforePos = _WorldSpaceCameraPos;
+
+			scrolledUV.x -= movePos.x / 20;
+			scrolledUV.y -= movePos.y / 20;
+
 
 			//変更したuv座標の値を上書き
 			fixed4 c = tex2D (_MainTex, scrolledUV) * _Color;
