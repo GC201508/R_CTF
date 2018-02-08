@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.UI;
 /*	-	-	-	-	-	-	-	-	-	-	-	-	-
  
 	・エントリーしたプレイヤーを生成す.
 	・ゴール後のシーン遷移.
-
-	＜予定＞
 	・Rocketらがゴールせずに全滅した際の処理.
-	
  
  -	-	-	-	-	-	-	-	-	-	-	-	-	*/
 public class StageConfig : MonoBehaviour

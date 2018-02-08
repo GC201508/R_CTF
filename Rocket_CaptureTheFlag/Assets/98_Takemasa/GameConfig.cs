@@ -81,6 +81,8 @@ public class GameConfig : MonoBehaviour
 	{
 
 		isEntryPlayer[playerNumber - 1] = true;
+		
+		playerScore[playerNumber - 1] = 0;	//スコア初期化.
 
 		ScoreBonus sb;  //リスト追加用変数.
 		sb.playerNumber = playerNumber; //エントリーするプレイヤー番号入れる.
