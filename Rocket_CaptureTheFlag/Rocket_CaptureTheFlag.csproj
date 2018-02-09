@@ -219,23 +219,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\00_Master\04_Script\BackGraphic\BG_Config.cs" />
-    <Compile Include="Assets\00_Master\04_Script\Camera\CameraConfig.cs" />
-    <Compile Include="Assets\00_Master\04_Script\Rocket\R_Explosion.cs" />
-    <Compile Include="Assets\00_Master\04_Script\Rocket\R_Goal.cs" />
-    <Compile Include="Assets\00_Master\04_Script\Rocket\R_move.cs" />
-    <Compile Include="Assets\01_Alpha\1_Title\TitleScript.cs" />
-    <Compile Include="Assets\01_Alpha\2_Entry\ColorSprict.cs" />
-    <Compile Include="Assets\01_Alpha\2_Entry\EntryConfig.cs" />
-    <Compile Include="Assets\01_Alpha\3\ScoreConfig.cs" />
-    <Compile Include="Assets\01_Alpha\3\SelectConfig.cs" />
-    <Compile Include="Assets\01_Alpha\4\MoveCameraArea.cs" />
-    <Compile Include="Assets\01_Alpha\4\StageConfig.cs" />
-    <Compile Include="Assets\01_Alpha\5\ColorEffect.cs" />
-    <Compile Include="Assets\01_Alpha\5\ResultConfig.cs" />
-    <Compile Include="Assets\01_Alpha\GameConfig.cs" />
-    <Compile Include="Assets\01_Alpha\SceneSprict.cs" />
     <Compile Include="Assets\97_Iriguchi\Scripts\gameCamera.cs" />
+    <Compile Include="Assets\98_Takemasa\ColorEffect.cs" />
+    <Compile Include="Assets\98_Takemasa\ColorSprict.cs" />
+    <Compile Include="Assets\98_Takemasa\EntryConfig.cs" />
+    <Compile Include="Assets\98_Takemasa\GameConfig.cs" />
+    <Compile Include="Assets\98_Takemasa\MoveCameraArea.cs" />
+    <Compile Include="Assets\98_Takemasa\ReadyScript.cs" />
+    <Compile Include="Assets\98_Takemasa\ResultConfig.cs" />
+    <Compile Include="Assets\98_Takemasa\Rocket\R_Explosion.cs" />
+    <Compile Include="Assets\98_Takemasa\Rocket\R_Goal.cs" />
+    <Compile Include="Assets\98_Takemasa\Rocket\R_move.cs" />
+    <Compile Include="Assets\98_Takemasa\SceneSprict.cs" />
+    <Compile Include="Assets\98_Takemasa\ScoreConfig.cs" />
+    <Compile Include="Assets\98_Takemasa\SelectConfig.cs" />
+    <Compile Include="Assets\98_Takemasa\StageConfig.cs" />
+    <Compile Include="Assets\98_Takemasa\TitleScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\97_Iriguchi\Shader\BackGroundShader.shader" />

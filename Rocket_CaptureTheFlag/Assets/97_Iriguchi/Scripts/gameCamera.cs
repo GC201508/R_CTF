@@ -48,8 +48,10 @@ public class gameCamera : MonoBehaviour {
 
         //プレイヤーを入れ込む、検索方法検討中。
         //moveSpeed = GameObject.Find("Player_1P").GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
-        moveSpeed = nearPlayer.GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
-
+        if (nearPlayer)
+        {
+            moveSpeed = nearPlayer.GetComponent<Rigidbody2D>().velocity.magnitude / moveTime;
+        }
         //CameraPos += toNext * moveSpeed * Time.deltaTime;
         if (cameraArea.IsRocketStay() && (toGoalPointDis.x > 2.0f || toGoalPointDis.y > 2.0f))
         {
