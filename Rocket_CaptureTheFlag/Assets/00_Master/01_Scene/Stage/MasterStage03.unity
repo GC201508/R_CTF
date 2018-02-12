@@ -972,7 +972,7 @@ Prefab:
     - target: {fileID: 114137616955649394, guid: 861d69196702c0e4484e385086fe7fe9,
         type: 2}
       propertyPath: testModel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4156807356455982, guid: 861d69196702c0e4484e385086fe7fe9, type: 2}
       propertyPath: m_LocalPosition.y

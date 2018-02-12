@@ -2569,7 +2569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3e6fcca531a19498fc29bef480bf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testModel: 1
+  testModel: 0
   sceneManager: {fileID: 886947249}
   rocket: {fileID: 1610120152176470, guid: d980bd3e7a213e64a918c23ed78aa29f, type: 2}
   rocketColor:
