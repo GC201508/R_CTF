@@ -10,6 +10,7 @@ using UnityEngine;
 	・ゲームに参加するプレイヤーを記録する（初回のみ）.
  
 ＜SelectStage(ScoreConfig)＞
+	・最後に選択したステージを記録する.
 	・プレイヤー別のスコアを表示させる(SocreConfig).
 
 ＜Stage＞
@@ -31,6 +32,7 @@ public class GameConfig : MonoBehaviour
 
 	public bool[] isEntryPlayer = new bool[4] { false, false, false, false };   //参加プレイヤー.
 	int[] playerScore = new int[4] { 1000, 2000, 3000, 4000 };  //各プレイヤーのスコア.
+	int selectStageNumber = 0;  //ステージセレクトが選んだステージのナンバー。最初は０から始まる.
 
 	//ボーナス配分を決めるための構造体.
 	public struct ScoreBonus
@@ -81,8 +83,8 @@ public class GameConfig : MonoBehaviour
 	{
 
 		isEntryPlayer[playerNumber - 1] = true;
-		
-		playerScore[playerNumber - 1] = 0;	//スコア初期化.
+
+		playerScore[playerNumber - 1] = 0;  //スコア初期化.
 
 		ScoreBonus sb;  //リスト追加用変数.
 		sb.playerNumber = playerNumber; //エントリーするプレイヤー番号入れる.
@@ -95,6 +97,17 @@ public class GameConfig : MonoBehaviour
 	/*ゲームに参加の有無を取得する。 
 	 * EntryConfig・StageConfigが使用する*/
 	public bool IsEntryPlayer(int playerNumber) { return isEntryPlayer[playerNumber - 1]; }
+
+	/*ステージセレクトで選んだステージ番号を記録するセッター.
+	 * SelectConfigが使用する.*/
+	public void SetSelectStageNumber(int stageNum)
+	{
+		selectStageNumber = stageNum;
+	}
+
+	/*ステージセレクトが選んだステージ番号を取得するゲッター.
+	 * SelectConfigが使用する.*/
+	public int GetSelectStageNumber() { return selectStageNumber; }
 
 	/*ゲーム参加人数を返す.
 	 * RusultConfigで使用する.*/

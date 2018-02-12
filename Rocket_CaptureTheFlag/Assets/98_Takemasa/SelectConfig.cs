@@ -36,6 +36,8 @@ public class SelectConfig : MonoBehaviour
 	//構造体のリスト.
 	List<StageContent> listStageContent = new List<StageContent>();
 
+
+	GameConfig gameConfig;	//GameConfigのコンポーネント.
 	int stageMax = 0;   //登録したステージ数。 slectStage配列の長さで初期化してね.
 	int selectNum = 0;  //現在選択しとるステージ.
 	bool isInputAxis = false;   //Axisに入力があるとき.
@@ -44,6 +46,8 @@ public class SelectConfig : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+
+		gameConfig = GameObject.FindGameObjectWithTag("GameConfig").GetComponent<GameConfig>(); //タグからGameConfigを取得す.
 
 		//ステージオブジェクトをリストに追加する.
 		foreach (GameObject go in slectStage)
@@ -55,9 +59,13 @@ public class SelectConfig : MonoBehaviour
 			listStageContent.Add(sc);
 		}
 
-		SetActiveSC(listStageContent[0], true); //最初のステージをActiveにする.
+		selectNum = gameConfig.GetSelectStageNumber();	//最後に選んだステージ番号を取得する.
 
-		stageMax = slectStage.Length - 1; //ステージ数.
+		SetActiveSC(listStageContent[selectNum], true); //選択状態にするステージをActiveにする.
+
+		stageMax = slectStage.Length - 1; //合計ステージ数.
+
+		ChangeTextItemCount();	//レイアウトを調整する.
 	}
 
 	// Update is called once per frame
@@ -133,6 +141,7 @@ public class SelectConfig : MonoBehaviour
 		//Aボタン(JoystickButton0)で決定する.
 		if (Input.GetKeyDown(KeyCode.JoystickButton0))
 		{
+			gameConfig.SetSelectStageNumber(selectNum);//GameConfigに最後に選択したステージ番号を記録する.
 			SceneManager.LoadScene(listStageContent[selectNum].Stage.name);
 		}
 	}
