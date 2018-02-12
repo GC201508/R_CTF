@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-
+/*
+ 
+	・該当するプレイヤーに対して徐々に変色する処理を行う.
+	・ResultConfigで呼び出して使う.
+ 
+ */
 public class ColorEffect : MonoBehaviour
 {
 

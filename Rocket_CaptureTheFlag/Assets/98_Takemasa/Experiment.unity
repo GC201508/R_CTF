@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &85720932
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -197,7 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99c0785f4442294abe82856b657de1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocket: {fileID: 1835833257003126, guid: 4b668bf899c781b468d1f478c2b5444f, type: 2}
 --- !u!1001 &104605526
 Prefab:
   m_ObjectHideFlags: 0
@@ -243,6 +242,10 @@ Prefab:
       value: 
       objectReference: {fileID: 1000010216359650, guid: f5858834b245a9e45ad1832cb0c34d86,
         type: 2}
+    - target: {fileID: 1000010868525858, guid: 7d6a99dd3aa94e44491a530e9c3a5e54, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6a99dd3aa94e44491a530e9c3a5e54, type: 2}
   m_IsPrefabParent: 0
@@ -316,7 +319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &425203089
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -627,7 +630,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1835833257003126, guid: 4b668bf899c781b468d1f478c2b5444f, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b668bf899c781b468d1f478c2b5444f, type: 2}
@@ -941,7 +944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1256086395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,19 +953,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1256086394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e5fa17bd3dbd34a89a4e1f9164a3d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d3e6fcca531a19498fc29bef480bf5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRocketColor:
-  - {fileID: 21300000, guid: 45343350ee2b0654eb3d852b33efb076, type: 3}
-  - {fileID: 21300000, guid: b814b0a2b396866448afc049ac8e5b6f, type: 3}
-  - {fileID: 21300000, guid: d3eebfdcb90f3fe42ad1669c48296eb3, type: 3}
-  - {fileID: 21300000, guid: c1402caf3420fc946bfba2cacd3ffa06, type: 3}
-  startPoint:
-  - {fileID: 85720931}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  testModel: 0
+  sceneManager: {fileID: 0}
+  rocket: {fileID: 0}
+  rocketColor: []
 --- !u!4 &1256086396
 Transform:
   m_ObjectHideFlags: 0

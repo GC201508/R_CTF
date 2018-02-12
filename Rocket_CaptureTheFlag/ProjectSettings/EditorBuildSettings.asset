@@ -6,23 +6,65 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/00_Master/01_Scene/01_Title.unity
+    guid: 29d1a8c7a248fe74cb327a3b364d7dcd
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/02_Entry.unity
+    guid: 6ac3eeb936eeb9a408d414ca499d9cd7
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/03_StageSelect.unity
+    guid: 7031eea34a970c945a9e85a9ae5947a2
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/Stage/PracticeStage01.unity
+    guid: 7e4d9d334a7ad8244abe34111c62a8a6
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/Stage/PracticeStage02.unity
+    guid: 277efa7efcbbd2842aa189df34f648b4
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/Stage/PracticeStage03.unity
+    guid: e17582b684889674cae7342464ea833a
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/Stage/MasterStage01.unity
+    guid: 319e34933daad4b47b2fac24099d95d5
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/Stage/MasterStage02.unity
+    guid: b2b10f4e756b80d46bc6504ed66295f2
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/Stage/MasterStage03.unity
+    guid: 502f914f9f0c0604a97238d995dc63c0
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/Stage/MasterStage04.unity
+    guid: cdd9db5936d15cc4d8578f9ddb154a51
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/Stage/MasterStage05.unity
+    guid: c3b1de31685772342a840397c1a7f860
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/Stage/MasterStage06.unity
+    guid: 28c322fc943eed14ab56a1f23ff705ff
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/Stage/MasterStage07.unity
+    guid: 9330238cffc80b54faca9cde5123fa05
+  - enabled: 1
+    path: Assets/00_Master/01_Scene/04_Result.unity
+    guid: f59e4407d4e87604da076b6be45c5aa5
+  - enabled: 0
     path: Assets/01_Alpha/1_Title/TestTitle.unity
     guid: e3fbc2fe6367e774385c295f644f874c
-  - enabled: 1
+  - enabled: 0
     path: Assets/01_Alpha/2_Entry/TestEntry.unity
     guid: 4ff487f0d8579944986f2afa54307b48
-  - enabled: 1
+  - enabled: 0
     path: Assets/01_Alpha/3/TestSelectScene.unity
     guid: 8286738131559414ba8310900b517451
-  - enabled: 1
+  - enabled: 0
     path: Assets/01_Alpha/4/TestStage.unity
     guid: f646eefb3ac5b2046a795e820e4a936e
-  - enabled: 1
+  - enabled: 0
     path: Assets/01_Alpha/4/TestStage00.unity
     guid: 98707493c8de3c145bd236d4ad5257b8
-  - enabled: 1
+  - enabled: 0
     path: Assets/01_Alpha/4/TestStage01.unity
     guid: 11f4c916524b1ec40b9941335521778a
-  - enabled: 1
+  - enabled: 0
     path: Assets/01_Alpha/5/TestResult.unity
     guid: 0160ad6135fdd4c469297a3c659dcd26
