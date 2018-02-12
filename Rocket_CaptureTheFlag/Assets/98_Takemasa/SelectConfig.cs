@@ -6,16 +6,16 @@ using UnityEngine;
 	
 	・ステージの選択を行った後シーンを移動する.
 	・ここではSceneManagerを使ったシーン遷移を行わない.
+		=>ステージ名 ＝ オブジェクト名とし、選択状態のオブジェクトからシーン遷移を行う.
 	
-	＜予定＞
-	・各プレイヤーが保有しているポイントを表示する.
+	（スコア表示関連はScoreConfigが担う。　スコア処理のコード不要）
  
  -	-	-	-	-	-	-	-	-	-	-	*/
 
 public class SelectConfig : MonoBehaviour
 {
 
-	public GameObject[] slectStage; //選択するステージの黒いほう.
+	public GameObject[] slectStage; //シーン遷移先の名前と同等のオブジェクトを選ぶ(Iconの子クラスにあるよ).
 
 	//ステージ選択に使う構造体.
 	public struct StageContent
@@ -73,9 +73,6 @@ public class SelectConfig : MonoBehaviour
 	/*ジョイスティック左右でステージを選択する.*/
 	void SelectStage()
 	{
-		//TODO(J.Takemasa):	動作テストの為にジョイスティック１の入力のみで動作する.
-		//					Master版ではエントリーしたプレイヤーらの入力に変更す.
-
 		float Axis = Input.GetAxisRaw("Horizontal");    //ジョイスティックの左右入力を取得.
 		bool isChangeStage = false; //選択しとるステージに変更があったらtrueになる.
 		int changeNum = 0;  //変更する数.
