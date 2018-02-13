@@ -30,6 +30,7 @@ using UnityEngine;
 public class GameConfig : MonoBehaviour
 {
 
+	public Material postEffectMat;	//スクリーンチェンジを設定したマテリアル.
 	public bool[] isEntryPlayer = new bool[4] { false, false, false, false };   //参加プレイヤー.
 	int[] playerScore = new int[4] { 1000, 2000, 3000, 4000 };  //各プレイヤーのスコア.
 	int selectStageNumber = 0;  //ステージセレクトが選んだステージのナンバー。最初は０から始まる.
@@ -43,6 +44,9 @@ public class GameConfig : MonoBehaviour
 	}
 	//ScoreBounus構造体のリスト.
 	List<ScoreBonus> listScoreBounus = new List<ScoreBonus>();
+
+	//postEffectFlag
+	postEffect postEffect = null;
 
 	//Rusultデバッグ用
 	public bool RUSULT_DEBUG = false; //trueで適用.
@@ -66,6 +70,8 @@ public class GameConfig : MonoBehaviour
 			//OnBounusNakayoDie(3);
 		}
 
+		
+
 		//このオブジェクトはシーン遷移で破棄されない.
 		DontDestroyOnLoad(this);
 	}
@@ -73,7 +79,7 @@ public class GameConfig : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		
 	}
 
 	/*ゲームに参加するプレイヤーを決める。

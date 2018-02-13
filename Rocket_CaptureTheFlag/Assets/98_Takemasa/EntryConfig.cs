@@ -11,7 +11,6 @@ public class EntryConfig : MonoBehaviour
 {
 
 	public GameObject[] rocket;
-	public GameObject gcObject;
 	public GameObject sceneManager;
 
 	GameConfig gcSprict;
@@ -26,7 +25,7 @@ public class EntryConfig : MonoBehaviour
 		}
 
 		//GameConfigオブジェクト内のスクリプトを取得する.
-		gcSprict = gcObject.GetComponent<GameConfig>();
+		gcSprict = GameObject.FindGameObjectWithTag("GameConfig").GetComponent<GameConfig>(); //タグからGameConfigを取得す.
 
 	}
 

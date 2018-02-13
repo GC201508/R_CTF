@@ -149,51 +149,6 @@ Transform:
   - {fileID: 2096871992}
   - {fileID: 1984248542}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &375761656
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1694039154507852, guid: 848e1ca3c21924243b2389f5f69a13ba,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 375761658}
-  - component: {fileID: 375761657}
-  m_Layer: 0
-  m_Name: GameConfig
-  m_TagString: GameConfig
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!114 &375761657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114125805030596194, guid: 848e1ca3c21924243b2389f5f69a13ba,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 375761656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7c82a0654773ff49b2c41f90e4b7ab9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEntryPlayer: 00000000
-  RUSULT_DEBUG: 0
---- !u!4 &375761658
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4069063309352108, guid: 848e1ca3c21924243b2389f5f69a13ba,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 375761656}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &750097067
@@ -244,7 +199,6 @@ MonoBehaviour:
   - {fileID: 1856353926}
   - {fileID: 1845838119}
   - {fileID: 1395611916}
-  gcObject: {fileID: 375761656}
   sceneManager: {fileID: 1923379053}
 --- !u!1 &1068196664
 GameObject:
@@ -606,6 +560,7 @@ GameObject:
   - component: {fileID: 1937366476}
   - component: {fileID: 1937366478}
   - component: {fileID: 1937366477}
+  - component: {fileID: 1937366480}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -679,6 +634,18 @@ Transform:
   m_Father: {fileID: 18994567}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1937366480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937366475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460ca68573878ec459360b06190857df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postEffectMat: {fileID: 2100000, guid: 670fc7e6901835048b3d771243ee7ec0, type: 2}
 --- !u!1 &1984248541
 GameObject:
   m_ObjectHideFlags: 0

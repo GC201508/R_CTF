@@ -112,6 +112,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &259954305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 259954306}
+  - component: {fileID: 259954307}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: GameConfig
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &259954306
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259954305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &259954307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 259954305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c82a0654773ff49b2c41f90e4b7ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postEffectMat: {fileID: 2100000, guid: 670fc7e6901835048b3d771243ee7ec0, type: 2}
+  isEntryPlayer: 00000000
+  RUSULT_DEBUG: 0
 --- !u!1001 &1319952679
 Prefab:
   m_ObjectHideFlags: 0
@@ -154,7 +197,7 @@ Prefab:
     - target: {fileID: 224350829692972578, guid: 7efc9d251a89d824db61866348dc73ab,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.29714966
+      value: 0.29718018
       objectReference: {fileID: 0}
     - target: {fileID: 224350829692972578, guid: 7efc9d251a89d824db61866348dc73ab,
         type: 2}
@@ -190,3 +233,20 @@ Camera:
   m_PrefabParentObject: {fileID: 20329397972072010, guid: 7efc9d251a89d824db61866348dc73ab,
     type: 2}
   m_PrefabInternal: {fileID: 1319952679}
+--- !u!1 &1457282885 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1395562262844702, guid: 7efc9d251a89d824db61866348dc73ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 1319952679}
+--- !u!114 &1457282889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1457282885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460ca68573878ec459360b06190857df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postEffectMat: {fileID: 2100000, guid: 670fc7e6901835048b3d771243ee7ec0, type: 2}
